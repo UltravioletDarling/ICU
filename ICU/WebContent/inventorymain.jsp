@@ -221,7 +221,7 @@
                                     <tr>
                                         <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar2.jpeg">Bruno Nash<br></td>
                                         <td>Software Engineer</td>
-                                        <td>London</td>
+                                        <td></td>
                                         <td>38</td>
                                         <td>2011/05/03<br></td>
                                         <td>$163,500</td>
@@ -242,14 +242,7 @@
                                         <td>2011/12/06<br></td>
                                         <td>$145,600</td>
                                     </tr>
-                                    <tr>
-                                        <td><img class="rounded-circle mr-2" width="30" height="30" src="assets/img/avatars/avatar5.jpeg">Cedric Kelly</td>
-                                        <td>Senior JavaScript Developer</td>
-                                        <td>Edinburgh</td>
-                                        <td>22</td>
-                                        <td>2012/03/29<br></td>
-                                        <td>$433,060</td>
-                                    </tr>
+                                  
                                 </tbody>
                                 <tfoot>
                                     <tr>
