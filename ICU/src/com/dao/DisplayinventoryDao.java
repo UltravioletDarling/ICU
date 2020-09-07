@@ -8,7 +8,7 @@ import com.bean.inventoryitem;
 import com.util.DBConnection;
 import java.sql.Statement;
 
-public class InventoryitemDao {
+public class DisplayinventoryDao {
 	 public String addItem(inventoryitem inventoryitem) throws ClassNotFoundException
      {
 		 
@@ -51,7 +51,7 @@ public class InventoryitemDao {
          {
             e.printStackTrace();
          }       
-         return "FAILED INSERTION"; 
+         return "ERROR"; 
      }
 
 }

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bean.inventoryitem;
-import com.dao.InventoryitemDao;
+import com.dao.DisplayinventoryDao;
 
 
 @WebServlet("/Inventoryitemservlet")
@@ -18,6 +18,7 @@ public class Inventoryitemservlet extends HttpServlet {
     
     public Inventoryitemservlet() {
     	
+
     }
 
 	
@@ -35,7 +36,7 @@ public class Inventoryitemservlet extends HttpServlet {
 		String itemType = request.getParameter("type");
 		String maintenanceDate = request.getParameter("maintenance");
 		
-		inventoryitem inventoryitem = new inventoryitem();
+		inventoryitem inventoryitem = new inventoryitem(maintenanceDate, maintenanceDate, maintenanceDate, maintenanceDate, maintenanceDate, maintenanceDate, maintenanceDate, maintenanceDate, maintenanceDate);
 		
 		inventoryitem.setItemid(itemID);
 		inventoryitem.setAdminid(adminID);
@@ -48,7 +49,7 @@ public class Inventoryitemservlet extends HttpServlet {
 		inventoryitem.setType(itemType);
 		inventoryitem.setMaintenance(maintenanceDate);
 		
-		InventoryitemDao inventoryDao = new InventoryitemDao();
+		DisplayinventoryDao inventoryDao = new DisplayinventoryDao();
 		
 		 String itemAdded = null;
 		 
@@ -64,7 +65,7 @@ public class Inventoryitemservlet extends HttpServlet {
 	         }
 	         else
 	         {
-	            request.setAttribute("errMessage", itemAdded);
+	            request.setAttribute("error", itemAdded);
 	            request.getRequestDispatcher("editinventory.jsp").forward(request, response);
 	         }
 	}

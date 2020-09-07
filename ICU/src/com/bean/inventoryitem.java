@@ -10,6 +10,23 @@ public class inventoryitem {
 	String udosage;
 	String type;
 	String maintenance;
+	
+	public inventoryitem(String itemid, String adminid, String name, String stock, String aquired, String expiry,
+			String udosage, String type, String maintenance) {
+
+		this.itemid = itemid;
+		this.adminid = adminid;
+		this.name = name;
+		this.stock = stock;
+		this.aquired = aquired;
+		this.expiry = expiry;
+		this.udosage = udosage;
+		this.type = type;
+		this.maintenance = maintenance;
+		
+	}
+	
+	
 	public String getItemid() {
 		return itemid;
 	}
