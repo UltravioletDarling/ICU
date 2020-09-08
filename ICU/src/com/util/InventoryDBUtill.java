@@ -16,7 +16,7 @@ public inventoryitem displayinventory(String itemid) {
 		try {
 			Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/reservations", "root", "");
 			 java.sql.Statement stmt = con.createStatement();
-    	    String sql = "select * from icudb where ItemID="+ itemid ;
+    	    String sql = "select * from inventory where ItemID="+ itemid ;
     	    ResultSet res = stmt.executeQuery(sql);
     		
   

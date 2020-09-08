@@ -20,7 +20,7 @@ public class Inventoryupdatedao {
 		try {
 			 con = DBConnection.createConnection();
 		     statement = con.createStatement();
-		     String sql = "update icudb set ItemID='"+itemid+"',AdminID='"+adminid+"',Name='"+name+"',AvailableUnits='"+stock+"',AquiredDate='"+aquired+"', ExpiryDate='"+expiry+"',UnitDosage='"+udosage+"',ItemType='"+type+"' ,NextMaintenance='"+maintenance+"' " + " where ItemID='"+itemid+"'";
+		     String sql = "update inventory set ItemID='"+itemid+"',AdminID='"+adminid+"',Name='"+name+"',AvailableUnits='"+stock+"',AquiredDate='"+aquired+"', ExpiryDate='"+expiry+"',UnitDosage='"+udosage+"',ItemType='"+type+"' ,NextMaintenance='"+maintenance+"' " + " where ItemID='"+itemid+"'";
 		     int rs = statement.executeUpdate(sql);
 		     
 		     if(rs>0) {

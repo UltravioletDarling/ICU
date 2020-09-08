@@ -21,7 +21,7 @@ public class InventoryDao {
 	    try {
 	    	con = DBConnection.createConnection();
 	        statement = con.createStatement();
-	        String sql = "select* from icudb where ItemID='"+itemID+"'";
+	        String sql = "select* from inventory where ItemID='"+itemID+"'";
 	        rs = statement.executeQuery(sql);
 	        
 	        if(rs.next()) {

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.bean.inventoryitem;
 import com.dao.DeleteitemDao;
-import com.dao.DisplayinventoryDao;
+import com.dao.InsertinventoryDao;
 import com.dao.InventoryDao;
 
 

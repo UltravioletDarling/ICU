@@ -11,7 +11,7 @@ public class DBConnection {
     Connection con = null;
     String url = "jdbc:mysql://localhost:3306/icudb"; //ICU DATABASE
     String username = "root";
-    String password = "root";
+    String password = "6334";
  
     try
     {
