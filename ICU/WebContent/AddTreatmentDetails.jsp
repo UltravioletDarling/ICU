@@ -32,7 +32,7 @@
 				<hr class="sidebar-divider my-0">
 				<ul class="nav navbar-nav text-light" id="accordionSidebar">
 					<li class="nav-item" role="presentation"><a class="nav-link"
-						href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+						href="index.html"><i class="fas fa-tachometer-alt"></i><span>DashBoard</span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
 						href="profile.html"><i class="fas fa-user"></i><span>Profile</span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
@@ -75,36 +75,44 @@
 				<div class="container-fluid">
 					<h3 class="text-dark mb-1">Insert the Patient's Treatment
 						Details</h3>
+						<p>PLease fill out all fields before adding</p>
 					<form method="POST" action="AddTreatmentDetailsServlet">
 						<table>
 
 							<tr>
 								<td>Patient ID</td>
-								<td><input type="text" name="patientID" /></td>
+								<td><input type="text" required="required" name="patientID" pattern="[A-Za-z0-9]{1,45}"/></td>
+								<td>Note: IDs must be less than 45 characters long with no special characters</td>
 							</tr>
 							<tr>
 								<td>Doctor ID</td>
-								<td><input type="text" name="doctorID" /></td>
+								<td><input type="text" required="required" name="doctorID" pattern="[A-Za-z0-9]{1,45}"/></td>
+	
 							</tr>
 							<tr>
 								<td>Blood Pressure</td>
-								<td><input type="text" name="bP" /></td>
+								<td><input type="text" required="required" name="bP" pattern="[0-9]{1,3}"/></td>
+								<td>BPM</td>
 							</tr>
 							<tr>
 								<td>Heart Rate</td>
-								<td><input type="text" name="hR" /></td>
+								<td><input type="text" required="required" name="hR" pattern="[0-9]{1,3}"/></td>
+								<td>mmHg</td>
 							</tr>
 							<tr>
 								<td>SPO2</td>
-								<td><input type="text" name="sPO2" /></td>
+								<td><input type="number" required="required" name="sPO2" min="1" max="100"/></td>
+								<td>%</td>
 							</tr>
 							<tr>
 								<td>Fluid In-take</td>
-								<td><input type="text" name="fintake" /></td>
+								<td><input type="text" required="required" name="fintake" pattern="[0-9]{1,5}"/></td>
+								<td>ml</td>
 							</tr>
 							<tr>
 								<td>Fluid Output</td>
-								<td><input type="text" name="foutput" /></td>
+								<td><input type="text" required="required" name="foutput" pattern="[0-9]{1,5}"/></td>
+								<td>ml</td>
 							</tr>
 
 							<tr>

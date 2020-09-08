@@ -59,7 +59,10 @@ public class AddTreatmentDetailsServlet extends HttpServlet {
 				dispatcher.forward(request, response);
 			}
 			
-			catch(Exception ex) {}
+			catch(Exception ex) {
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Fail.jsp");
+				dispatcher.forward(request, response);
+			}
 		
 	}
 }	
