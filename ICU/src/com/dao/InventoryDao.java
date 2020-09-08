@@ -1,6 +1,7 @@
 package com.dao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,8 +12,8 @@ import com.bean.inventoryitem;
 import com.util.DBConnection;
 
 public class InventoryDao {
-	public static List<inventoryitem> getDetails(String itemID) throws SQLException{
-		ArrayList<inventoryitem> item = new ArrayList<>();
+	public static List<inventoryitem> getDetails(String ID) throws SQLException{
+		ArrayList<inventoryitem> inventory = new ArrayList<>();
 
 		Connection con = null;
 	    Statement statement = null;
@@ -21,8 +22,14 @@ public class InventoryDao {
 	    try {
 	    	con = DBConnection.createConnection();
 	        statement = con.createStatement();
-	        String sql = "select* from inventory where ItemID='"+itemID+"'";
+	        String sql = "select* from inventory where ItemID='"+ID+"'";
 	        rs = statement.executeQuery(sql);
+	        
+	     //   try {
+		//		Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/reservations", "root", "6334");
+		//		 java.sql.Statement stmt = con.createStatement();
+	    //	    String sql = "select * from inventory where ItemID='"+ID+"'";
+	    //	    ResultSet res = stmt.executeQuery(sql);
 	        
 	        if(rs.next()) {
 	        	       	
@@ -37,13 +44,14 @@ public class InventoryDao {
 	        	String maintenance = rs.getString(9);
 	        	
 	        	inventoryitem inventoryitem= new inventoryitem(itemid,adminid,name,stock,aquired,expiry,udosage,type,maintenance);
-	        	item.add(inventoryitem);
+	        	inventory.add(inventoryitem);
 	        }
+	        
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	
-		return item;
+		return inventory;
 	}
 
 }
