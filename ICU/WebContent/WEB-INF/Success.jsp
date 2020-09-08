@@ -4,6 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
+<meta http-equiv="refresh" content="5;url=http://localhost:8090/ICU/AddTreatmentDetails.jsp" />
 <title>Insert title here</title>
 </head>
 <body>We Coo!!!
