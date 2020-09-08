@@ -3,13 +3,14 @@ package com.bean;
 public class TreatmentDetails {
 	
 	private int treatmentDetailsID;
-	private int patientID;
-	private int doctorID;
-	private double bP;
+	private String patientID;
+	private String doctorID;
+	private int bP;
 	private int hR;
 	private double sPO2;
 	private double fintake;
 	private double foutput;
+	
 	
 	public int getTreatmentDetailsID() {
 		return treatmentDetailsID;
@@ -17,22 +18,22 @@ public class TreatmentDetails {
 	public void setTreatmentDetailsID(int treatmentDetailsID) {
 		this.treatmentDetailsID = treatmentDetailsID;
 	}
-	public int getPatientID() {
+	public String getPatientID() {
 		return patientID;
 	}
-	public void setPatientID(int patientID) {
+	public void setPatientID(String patientID) {
 		this.patientID = patientID;
 	}
-	public int getDoctorID() {
+	public String getDoctorID() {
 		return doctorID;
 	}
-	public void setDoctorID(int doctorID) {
+	public void setDoctorID(String doctorID) {
 		this.doctorID = doctorID;
 	}
-	public double getbP() {
+	public int getbP() {
 		return bP;
 	}
-	public void setbP(double bP) {
+	public void setbP(int bP) {
 		this.bP = bP;
 	}
 	public int gethR() {

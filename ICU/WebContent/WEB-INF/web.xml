@@ -43,9 +43,16 @@
 <url-pattern>/Deleteitemservlet</url-pattern>
 </servlet-mapping>
 
+<!-- Razta we XML stuff -->>
 
-
-
+	<servlet>
+		<servlet-name>AddTreatmentDetailsServlet</servlet-name>
+		<servlet-class>com.controller.AddTreatmentDetailsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddTreatmentDetailsServlet</servlet-name>
+		<url-pattern>/AddTreatmentDetailsServlet</url-pattern>
+	</servlet-mapping>
  
    
  
