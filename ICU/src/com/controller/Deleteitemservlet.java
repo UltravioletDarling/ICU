@@ -26,23 +26,22 @@ public class Deleteitemservlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		boolean isTrue = false;
-		String id = request.getParameter("id");
+		String itemID = request.getParameter("itemid");
 		String username = request.getParameter("username");
-		System.out.println("delete" + username);
+		System.out.println("delete" + itemID);
 		
 		
-		isTrue = DeleteitemDao.deleteitem(id);
+		isTrue = DeleteitemDao.deleteitem(itemID);
 		
 		if(isTrue == true) {
-			RequestDispatcher dis = request.getRequestDispatcher("DeleteSucess.jsp");
+			RequestDispatcher dis = request.getRequestDispatcher("InventoryDeleteSucess.jsp");
 			dis.forward(request, response);	
 		}
 		else {
 			try {
 				List<inventoryitem> itemDetails;
-				itemDetails = InventoryDao.getDetails(username);
+				itemDetails = InventoryDao.getDetails(itemID);
 				request.setAttribute("Item ID",itemDetails);
-	            System.out.println("Dispa"+ request.getContextPath());
 	            request.getRequestDispatcher("inventorymain.jsp").forward(request, response);
 			} catch (SQLException e) {
 				e.printStackTrace();

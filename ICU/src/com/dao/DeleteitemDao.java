@@ -16,7 +16,7 @@ public class DeleteitemDao {
 		try {
 			con = DBConnection.createConnection();
 		    statement = con.createStatement();
-		    String sql = "delete from icudb where Item ID='"+itemid+"'";
+		    String sql = "delete from icudb where ItemID='"+itemid+"'";
 		    int rs = statement.executeUpdate(sql);
 		     
 		    if(rs>0) {
