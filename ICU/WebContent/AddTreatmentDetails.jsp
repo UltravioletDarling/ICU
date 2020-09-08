@@ -77,7 +77,7 @@
 						Details</h3>
 						<p>PLease fill out all fields before adding</p>
 					<form method="POST" action="AddTreatmentDetailsServlet">
-						<table>
+						<table class="table">
 
 							<tr>
 								<td>Patient ID</td>
