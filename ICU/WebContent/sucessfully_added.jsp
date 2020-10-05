@@ -1,16 +1,26 @@
+<%@page import="com.bean.PatientHandoff_bean"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
 
+<%
+	
+	String idString = request.getParameter("id");
+	int id = Integer.parseInt(idString); 
+	//PatientHandoff_bean temp = PatientHandoff_bean();
+	//request.setAttribute(id,
+	System.out.println("suceccfully added id = " + id);
+%>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="refresh" content="5;url=http://localhost:8086/ICU/show_patient_handoff_details.jsp" />
     <title>Blank Page - Brand</title>
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
     <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
-    <link rel="stylesheet" href="assets/css/untitled.css">
 </head>
 
 <body id="page-top">
@@ -134,52 +144,14 @@
             </div>
             </nav>
             <div class="container-fluid">
-                <h3 class="text-dark mb-1" style="margin: 48px;">Patient Hand Off Details</h3>
+                <h3 class="text-dark mb-1" style="text-align: center;margin: 100px;">Data added successfully</h3>
             </div>
-            <div class="row">
-                <div class="col col-3">
-                	<form>
-                		<h6 style="font-size: 16px;">STATUS</h6><textarea style="height: 230px;margin: 0px;width: 330px;"></textarea>
-                    	<button class="btn btn-primary" type="button" style="margin: 7px 0px 0px 0px;">Save</button>
-                	</form> 
-                </div>
-                
-                <div class="col col-3">
-                    <h6>ALERGIES</h6>
-					<form>
-						<textarea style="height: 230px;margin: 0px;width: 330px;"></textarea>
-						<button class="btn btn-primary" type="button" style="margin: 7px 0px 0px 0px;">Save</button>
-					</form>
-				</div>
-					
-					
-                <div class="col col-3">
-                    <h6>CRITICAL&nbsp;CONDITION</h6>
-					<form>
-						<textarea style="height: 230px;margin: 0px;width: 330px;"></textarea>
-						<button class="btn btn-primary" type="button" style="margin: 7px 0px 0px 0px;">Save</button>
-					</form>
-				</div>
-					
-                <div class="col col-3">
-                    <h6>OTHERS</h6>
-					<form>
-						<textarea style="height: 230px;margin: 0px;width: 330px;"></textarea>
-						<button class="btn btn-primary" type="button" style="margin: 7px 0px 0px 0px;">Save</button>
-					</form>
-				</div>
-				
-            </div>
-            <div class="row">
-                <div class="col">
-                    <h5>CHECKED&nbsp;BY</h5>
-					<form>
-						<textarea style="height: 150px;width: 961px;"></textarea><br>
-						<button class="btn btn-primary" type="button" style="margin: 7px 0px 0px 0px;">Save</button>
-					</form>
-				</div>
-					
-            </div>
+            <h1 style="text-align: center;font-size: 19px;">Redirecting to patient hand off details in 5 seconds&nbsp;</h1>
+            <br>
+            <center>
+            	<b>If not redirect works Please click <a href="<%=request.getContextPath()%>show_patient_handoff_details.jsp"><b class="loginhome">here</b></a> to continue.</b>
+            </center>
+            
         </div>
         <footer class="bg-white sticky-footer">
             <div class="container my-auto">
