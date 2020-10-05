@@ -9,6 +9,7 @@ public class DBConnection {
     public static Connection createConnection()throws ClassNotFoundException,SQLException
     {
     Connection con = null;
+<<<<<<< HEAD
     String url = "jdbc:mysql://localhost:3306/customers";
     String username = "root";
     String password = "root";
@@ -45,4 +46,34 @@ public class DBConnection {
 //			e.printStackTrace();
 //		}
 //	}
+=======
+    String url = "jdbc:mysql://localhost:3306/icudb"; //ICU DATABASE
+    String username = "root";
+    String password = "6334";
+ 
+    try
+    {
+        try
+        {
+            Class.forName("com.mysql.jdbc.Driver");
+        }
+        catch (ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }
+        con = DriverManager.getConnection(url, username, password);
+        System.out.println("Post establishing a DB connection - "+con);
+    }
+    catch (Exception e)
+    {
+        e.printStackTrace();
+    }
+    
+    return con;
+    }
+    
+    //test comment
+    //TEST COMMENT 2
+    
+>>>>>>> branch 'master' of https://github.com/UltravioletDarling/ICU.git
 }

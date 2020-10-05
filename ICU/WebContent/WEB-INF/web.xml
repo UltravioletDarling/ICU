@@ -1,14 +1,66 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 
 <element>
+=======
+ <element>
+>>>>>>> branch 'master' of https://github.com/UltravioletDarling/ICU.git
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd" version="4.0">
- 
- 
 
- <servlet>
-      <servlet-name>exampleservlet</servlet-name>
-      <servlet-class>com.reservation.exampleservlet</servlet-class> 
+ 
+<servlet>
+      <servlet-name>Inventoryitemservlet</servlet-name>
+      <servlet-class>com.controller.Inventoryitemservlet</servlet-class> 
  </servlet>
+<<<<<<< HEAD
+=======
+ 
+<servlet-mapping>
+<servlet-name>Inventoryitemservlet</servlet-name>
+<url-pattern>/Inventoryitemservlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+      <servlet-name>Displayinventoryservlet</servlet-name>
+      <servlet-class>com.controller.Displayinventoryservlet</servlet-class> 
+ </servlet>
+ 
+<servlet-mapping>
+<servlet-name>Displayinventoryservlet</servlet-name>
+<url-pattern>/Displayinventoryservlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+      <servlet-name>Inventoryupdateservlet</servlet-name>
+      <servlet-class>com.controller.Inventoryupdateservlet</servlet-class> 
+ </servlet>
+ 
+<servlet-mapping>
+<servlet-name>Inventoryupdateservlet</servlet-name>
+<url-pattern>/Inventoryupdateservlet</url-pattern>
+</servlet-mapping>
+
+<servlet>
+      <servlet-name>Deleteitemservlet</servlet-name>
+      <servlet-class>com.controller.Deleteitemservlet</servlet-class> 
+ </servlet>
+ 
+<servlet-mapping>
+<servlet-name>Deleteitemservlet</servlet-name>
+<url-pattern>/Deleteitemservlet</url-pattern>
+</servlet-mapping>
+
+<!-- Razta we XML stuff -->>
+
+	<servlet>
+		<servlet-name>AddTreatmentDetailsServlet</servlet-name>
+		<servlet-class>com.controller.AddTreatmentDetailsServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddTreatmentDetailsServlet</servlet-name>
+		<url-pattern>/AddTreatmentDetailsServlet</url-pattern>
+	</servlet-mapping>
+>>>>>>> branch 'master' of https://github.com/UltravioletDarling/ICU.git
  
  <servlet>
         <servlet-name>PatientHandoff_Servlet</servlet-name>
@@ -33,5 +85,8 @@
    
  
  </web-app>
+<<<<<<< HEAD
  
+=======
+>>>>>>> branch 'master' of https://github.com/UltravioletDarling/ICU.git
  </element>
