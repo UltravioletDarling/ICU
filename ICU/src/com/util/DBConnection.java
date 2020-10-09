@@ -9,8 +9,10 @@ public class DBConnection {
     public static Connection createConnection()throws ClassNotFoundException,SQLException
     {
     Connection con = null;
+    
+    
 
-    String url = "jdbc:mysql://localhost:3306/icudb"; //ICU DATABASE
+    String url = "jdbc:mysql://localhost:3306/icudb"; //Inventory DATABASE
     String username = "root";
     String password = "6334";
  
