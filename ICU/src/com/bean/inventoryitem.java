@@ -27,6 +27,21 @@ public class inventoryitem {
 	}
 	
 	
+	public inventoryitem() {
+		// TODO Auto-generated constructor stub
+	}
+   
+	
+	public String getinventoryitemID() {
+		return itemid;
+	}
+	public void setinventoryitemID(String itemid) {
+		this.itemid = itemid;
+	}
+
+
+
+
 	public String getItemid() {
 		return itemid;
 	}

@@ -110,7 +110,9 @@
 							</tr>
 							<tr>
 								<td>Item Type</td>
-								<td><input id="type" name="type" class="form-control" type="text"  ></td>
+								<td><Select id="type" name="type" class="form-control" type="text"  >
+								 <option value="Medicine">Medicine</option>
+                                <option Equipment>Equipment</option></td>
 							</tr>
 							<tr>
 								<td>Next Maintenance</td>

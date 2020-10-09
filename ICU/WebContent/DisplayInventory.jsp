@@ -1,9 +1,10 @@
 <%@page import="com.bean.inventoryitem"%>
-<%@page import="com.controller.Inventoryitemservlet"%>
-<%@page import="com.dao.InsertinventoryDao"%>
+<%@page import="com.controller.Displayinventoryservlet"%>
+<%@page import="com.dao.DisplayinventoryDao"%>
+<%@page import="com.dao.Inventorylistinterfacedao"%>
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 
@@ -76,71 +77,55 @@
 
 					</div>
 				</nav>
-				<div class="container-fluid">
-					<h3 class="text-dark mb-1">Add Item Details</h3>
-					<form method="POST" action="#">
-						<table>
+					
+<table>
+			 <caption><h1>Main Inventory</h1></caption>
+			  	<tr>
+	              	   <th>Item ID</th>
+		               <th>Admin ID</th>
+		               <th>Item Name</th> 
+		               <th>Remaining Stock</th>
+		               <th>Aquired Date</th>
+		               <th>Expiry Date</th>
+		               <th>Unit Dosage</th>
+		               <th>Item Type</th>
+		               <th>Next Maintenance</th>
+		               <th colspan = "0"></th>
+		        </tr>
+		        
+		        <%
+		            Inventorylistinterfacedao inventorylistinterfacedao = new DisplayinventoryDao();
+		            ArrayList<inventoryitem> arrayList = inventorylistinterfacedao.getinventoryitem;
+		        		        		for(inventoryitem inventoryitem: arrayList){
+		        		        %>
+				
+		     <tr>
+					<td> <%=inventoryitem.getItemid() %></td>
+					<td> <%=inventoryitem.getAdminid() %></td>
+					<td> <%=inventoryitem.getName() %></td>
+					<td> <%=inventoryitem.getStock() %></td>
+					<td> <%=inventoryitem.getAquired() %></td>
+					<td> <%=inventoryitem.getExpiry() %></td>
+					<td> <%=inventoryitem.getUdosage() %></td>
+					<td> <%=inventoryitem.getType() %></td>
+					<td> <%=inventoryitem.getMaintenance() %></td>
+					<td> 
+						<form method="POST" action="#">
+						<input type="hidden" name="itemID" value="<%=inventoryitem.getItemid()%>"/>
+						<input type="submit" value= "selectInventoryItem" class="select-button" /> 
+					   </form>
+					</td>
+					
+				</tr>			
+					<%	
+				    }
+				      %>    
+				
+</table>
 
-							<tr>
-								<td>Item ID</td>
-								<td><input id="itemid" name="itemid" class="form-control" type="text" ></td>
-							</tr>
-							<tr>
-								<td>Admin ID</td>
-								<td><input id="adminid" name="adminid" class="form-control" type="text" ></td>
-							</tr>
-							<tr>
-								<td>Item Name</td>
-								<td><input id="name" name="name" class="form-control" type="text" ></td>
-							</tr>
-							<tr>
-								<td>Remaining Stock</td>
-								<td><input id="stock" name="stock" class="form-control" type="text" ></td>
-							</tr>
-							<tr>
-								<td>Aquired Date</td>
-								<td><input id="aquired" name="aquired" class="form-control" type="text" ></td>
-							</tr>
-							<tr>
-								<td>Expiry Date</td>
-								<td><input id="expiry" name="expiry" class="form-control" type="text" ></td>
-							</tr>
-							<tr>
-								<td>Unit Dosage</td>
-								<td><input id="udosage" name="udosage" class="form-control" type="text" ></td>
-							</tr>
-							<tr>
-								<td>Item Type</td>
-								<td><input id="type" name="type" class="form-control" type="text"  ></td>
-							</tr>
-							<tr>
-								<td>Next Maintenance</td>
-								<td><input id="maintenance" name="maintenance" class="form-control" type="date"></td>
-							</tr>
 
 
-							<tr>
-								<td colspan="2"><input type="submit"
-									value="Update Item Data" class="add-button" /></td>
-							</tr>
-							<!-- 
-			<tr>	
-				<td colspan="2"><input type="reset" value="Reset" class="reset-button" /></td>
-			</tr> 
-			-->
-						</table>
-					</form>
-					<!--  
-	<form method="POST" action="ListEmployeeServlet">
-		<table>
-			<tr>
-				<td colspan="2"><input type="submit" value="List All Employees" class="list-button" />
-				</td>
-			</tr>
-		</table>
-	</form>
-	-->
-				</div>
+		        
 			</div>
 			<footer class="bg-white sticky-footer">
 				<div class="container my-auto">

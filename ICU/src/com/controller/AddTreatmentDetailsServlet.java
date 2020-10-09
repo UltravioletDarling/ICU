@@ -1,5 +1,5 @@
 package com.controller;
-
+/* 
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -15,16 +15,12 @@ import com.dao.TreatmentDetailsDAO;
 
 
 
-/**
- * Servlet implementation class AddTreatmentDetailsServlet
- */
+
 @WebServlet("/AddTreatmentDetailsServlet")
 public class AddTreatmentDetailsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
@@ -66,3 +62,4 @@ public class AddTreatmentDetailsServlet extends HttpServlet {
 		
 	}
 }	
+*/

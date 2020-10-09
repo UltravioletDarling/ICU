@@ -48,9 +48,7 @@ public class Inventoryitemservlet extends HttpServlet {
 	            RequestDispatcher dis2 = request.getRequestDispatcher("/test.jsp");
 	            dis2.forward(request, response);
 	        }
-		
-		 
-			
+	
 	       
 	        
 	}

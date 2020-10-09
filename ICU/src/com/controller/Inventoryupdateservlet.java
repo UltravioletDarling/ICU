@@ -1,5 +1,5 @@
 package com.controller;
-
+/* 
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -17,7 +17,7 @@ import com.dao.InventoryDao;
 import com.dao.Inventoryupdatedao;
 
 
-
+/* 
 @WebServlet("/Inventoryupdateservlet")
 public class Inventoryupdateservlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
@@ -53,7 +53,7 @@ public class Inventoryupdateservlet extends HttpServlet {
 			 
 			try {
 				List<inventoryitem> itemDetails;
-				itemDetails = InventoryDao.getDetails(itemID);
+				itemDetails = (List<inventoryitem>) InventoryDao.getdetails(itemID);
 				request.setAttribute("Item ID",itemDetails);
 	           // System.out.println("Dispatch"+ request.getContextPath());
 	            request.getRequestDispatcher("UpdateInventorySuccess.jsp").forward(request, response);
@@ -69,3 +69,4 @@ public class Inventoryupdateservlet extends HttpServlet {
 	}
 
 }
+*/
