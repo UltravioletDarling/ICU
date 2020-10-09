@@ -4,15 +4,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
  
-public class DBConnection {
+public class DBConnection_drex {
  
     public static Connection createConnection()throws ClassNotFoundException,SQLException
     {
     Connection con = null;
 
-    String url = "jdbc:mysql://localhost:3306/icudb"; //ICU DATABASE
+    String url = "jdbc:mysql://localhost:3306/customers";
     String username = "root";
-    String password = "6334";
+    String password = "root";
  
     try
     {
@@ -34,5 +34,16 @@ public class DBConnection {
     
     return con;
     }
-    
 }
+//  check database connetion
+	
+//	public static void main(String[] args) {
+//		try {
+//			new DBConnect().createConnection();
+//			System.out.println("Sucess");
+//		} catch (ClassNotFoundException e) {
+//			e.printStackTrace();
+//		} catch(SQLException e){
+//			e.printStackTrace();
+//		}
+//	}
