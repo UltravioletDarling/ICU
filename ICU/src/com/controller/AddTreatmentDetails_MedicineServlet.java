@@ -9,41 +9,37 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.bean.TreatmentDetails;
+
+import com.bean.TreatmentDetails_medicine;
 import com.dao.ITreatmentDetailsDAO;
 import com.dao.TreatmentDetailsDAO;
 
-
-
-
-@WebServlet("/AddTreatmentDetailsServlet")
-public class AddTreatmentDetailsServlet extends HttpServlet {
+/**
+ * Servlet implementation class AddTreatmentDetails_MedicineServlet
+ */
+@WebServlet("/AddTreatmentDetails_MedicineServlet")
+public class AddTreatmentDetails_MedicineServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
-	
+       
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		
 		
 		try {
-				response.setContentType("text/html");
+				response.setContentType("text/html; charset=ISO-8859-1");
 	
-				TreatmentDetails treatmentDetails = new TreatmentDetails();
+				TreatmentDetails_medicine treatmentDetails_medicine = new TreatmentDetails_medicine();
 			
-		
-				treatmentDetails.setPatientID(request.getParameter("patientID"));
-				treatmentDetails.setDoctorID(request.getParameter("doctorID"));
-				treatmentDetails.setbP(Integer.parseInt(request.getParameter("bP")));
-				treatmentDetails.sethR(Integer.parseInt(request.getParameter("hR")));
-				treatmentDetails.setsPO2(Double.parseDouble(request.getParameter("sPO2")));
-				treatmentDetails.setFintake(Double.parseDouble(request.getParameter("fintake")));
-				treatmentDetails.setFoutput(Double.parseDouble(request.getParameter("foutput")));
+				treatmentDetails_medicine.setTreatmentDetailsID(Integer.parseInt(request.getParameter("treatmentDetailsID")));
+				treatmentDetails_medicine.setItemId(request.getParameter("itemID"));
+				treatmentDetails_medicine.setDosage(request.getParameter("dosage"));
 				
+			
 				
 				ITreatmentDetailsDAO iTreatmentDetails= new TreatmentDetailsDAO();
-				int treatmentDetailsID = iTreatmentDetails.addTreatmentDetails(treatmentDetails);
+				iTreatmentDetails.addTreatmentDetails_medicine(treatmentDetails_medicine);
 					
-				request.setAttribute("TreatmentDetailsID", treatmentDetailsID);
+				request.setAttribute("TreatmentDetailsID", treatmentDetails_medicine.getTreatmentDetailsID());
 				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addTreatmentDetails_Medicine.jsp");
 				dispatcher.forward(request, response);
 					
@@ -61,5 +57,4 @@ public class AddTreatmentDetailsServlet extends HttpServlet {
 			}
 		
 	}
-}	
-
+}

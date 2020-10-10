@@ -55,6 +55,14 @@
 		<url-pattern>/AddTreatmentDetailsServlet/*</url-pattern>
 	</servlet-mapping>
 
+ 	<servlet>
+		<servlet-name>AddTreatmentDetails_MedicineServlet</servlet-name>
+		<servlet-class>com.controller.AddTreatmentDetails_MedicineServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>AddTreatmentDetails_MedicineServlet</servlet-name>
+		<url-pattern>/AddTreatmentDetails_MedicineServlet/*</url-pattern>
+	</servlet-mapping>
  
  <servlet>
         <servlet-name>PatientHandoff_Servlet</servlet-name>

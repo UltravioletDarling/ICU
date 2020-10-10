@@ -41,7 +41,7 @@
 					<li class="nav-item" role="presentation"><a class="nav-link"
 						href="profile.html"><i class="fas fa-user"></i><span>Profile</span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
-						href="DisplayAllTreatmentDetails.jsp"><i class="fas fa-table"></i><span>Treatment Details Table</span></a></li>
+						href="#"><i class="fas fa-table"></i><span>Treatment Details Table</span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
 						href="login.html"><i class="far fa-user-circle"></i><span>Login</span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
