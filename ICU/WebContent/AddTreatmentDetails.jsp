@@ -7,7 +7,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Blank Page - Brand</title>
+<title>Add Treatment Details of Patients</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -36,7 +36,7 @@
 					<li class="nav-item" role="presentation"><a class="nav-link"
 						href="profile.html"><i class="fas fa-user"></i><span>Profile</span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
-						href="table.html"><i class="fas fa-table"></i><span>Table</span></a></li>
+						href="DisplayAllTreatmentDetails.jsp"><i class="fas fa-table"></i><span>Treatment Details Table</span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
 						href="login.html"><i class="far fa-user-circle"></i><span>Login</span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
@@ -119,23 +119,24 @@
 								<td colspan="2"><input type="submit"
 									value="Add Treatment Details" class="add-button" /></td>
 							</tr>
-							<!-- 
-			<tr>	
-				<td colspan="2"><input type="reset" value="Reset" class="reset-button" /></td>
-			</tr> 
-			-->
+											
+							<tr>	
+								<td colspan="2"><input type="reset" value="Reset" class="reset-button" /></td>
+							</tr> 
+			
 						</table>
 					</form>
-					<!--  
-	<form method="POST" action="ListEmployeeServlet">
-		<table>
-			<tr>
-				<td colspan="2"><input type="submit" value="List All Employees" class="list-button" />
-				</td>
-			</tr>
-		</table>
-	</form>
-	-->
+					<form method="POST" action="AddTreatmentDetailsServlet">
+								<input type="hidden" value="P112"  name="patientID" />
+								<input type="hidden" value="E123" name="doctorID" />
+								<input type="hidden" value="132" name="bP" />
+								<input type="hidden" value="110" name="hR" />
+								<input type="hidden" value="97" name="sPO2" />
+								<input type="hidden"  value="1600" name="fintake" />
+								<input type="hidden" value="900" name="foutput" /><input type="submit"
+									value="Add Treatment Details DEMO" class="add-button" />
+					</form>
+
 				</div>
 			</div>
 			<footer class="bg-white sticky-footer">

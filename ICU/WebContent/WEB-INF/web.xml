@@ -52,7 +52,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>AddTreatmentDetailsServlet</servlet-name>
-		<url-pattern>/AddTreatmentDetailsServlet</url-pattern>
+		<url-pattern>/AddTreatmentDetailsServlet/*</url-pattern>
 	</servlet-mapping>
 
  

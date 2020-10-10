@@ -1,5 +1,5 @@
 package com.controller;
-/* 
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -62,4 +62,4 @@ public class AddTreatmentDetailsServlet extends HttpServlet {
 		
 	}
 }	
-*/
+

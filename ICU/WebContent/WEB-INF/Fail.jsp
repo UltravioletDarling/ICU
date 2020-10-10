@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="refresh" content="5;url=http://localhost:8090/ICU/AddTreatmentDetails.jsp" />
+<meta http-equiv="refresh" content="2;url=http://localhost:8090/ICU/AddTreatmentDetails.jsp" />
 <title>Insert title here</title>
 </head>
 <body>
