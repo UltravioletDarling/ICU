@@ -22,6 +22,7 @@ public ArrayList<inventoryitem> getdetails() {
     	
 		ArrayList<inventoryitem> inventorylist = new ArrayList<inventoryitem>();
 
+		//test
 		Connection con = null;
 	    Statement statement = null;
 	    
