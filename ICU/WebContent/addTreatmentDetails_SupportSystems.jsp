@@ -1,3 +1,7 @@
+<%@page import="com.bean.TreatmentDetails_supportSystems"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.dao.ITreatmentDetailsDAO"%>
+<%@page import="com.dao.TreatmentDetailsDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
@@ -7,7 +11,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Add Treatment Details of Patients</title>
+<title>Add Support Systems</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -15,6 +19,7 @@
 </head>
 
 <body id="page-top">
+
 	<div id="wrapper">
 		<nav
 			class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
@@ -76,48 +81,32 @@
 					<h3 class="text-dark mb-1">Insert the Patient's Treatment
 						Details</h3>
 						<p>PLease fill out all fields before adding</p>
-					<form method="POST" action="AddTreatmentDetailsServlet">
+						<% 
+							int TreatmentDetailsID = (int) request.getAttribute("TreatmentDetailsID");
+							
+
+						%>
+					<form method="POST" action="AddTreatmentDetails_SupportSystemsServlet">
 						<table class="table">
-
-							<tr>
-								<td>Patient ID</td>
-								<td><input type="text" required="required" name="patientID" pattern="[A-Za-z0-9]{1,45}"/></td>
-								<td>Note: IDs must be less than 45 characters long with no special characters</td>
-							</tr>
-							<tr>
-								<td>Doctor ID</td>
-								<td><input type="text" required="required" name="doctorID" pattern="[A-Za-z0-9]{1,45}"/></td>
-	
-							</tr>
-							<tr>
-								<td>Blood Pressure</td>
-								<td><input type="text" required="required" name="bP" pattern="[0-9]{1,3}"/></td>
-								<td>BPM</td>
-							</tr>
-							<tr>
-								<td>Heart Rate</td>
-								<td><input type="text" required="required" name="hR" pattern="[0-9]{1,3}"/></td>
-								<td>mmHg</td>
-							</tr>
-							<tr>
-								<td>SPO2</td>
-								<td><input type="number" required="required" name="sPO2" min="1" max="100"/></td>
-								<td>%</td>
-							</tr>
-							<tr>
-								<td>Fluid In-take</td>
-								<td><input type="text" required="required" name="fintake" pattern="[0-9]{1,5}"/></td>
-								<td>ml</td>
-							</tr>
-							<tr>
-								<td>Fluid Output</td>
-								<td><input type="text" required="required" name="foutput" pattern="[0-9]{1,5}"/></td>
-								<td>ml</td>
+						<tr>
+								<td>Treatment Details ID</td>
+								<td><input type="text" value = "<%=TreatmentDetailsID%>" name="treatmentDetailsID" readonly/></td>
+								<td>This record is for this treatment ID</td>
 							</tr>
 
+							<tr>
+								<td>Support System Name</td>
+								<td><input type="text" required="required" name="supportSystemName" pattern="[A-Za-z0-9]{1,45}"/></td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Amount</td>
+								<td><input type="text" required="required" name="amount"  pattern="[A-Za-z0-9]{1,200}"/></td>
+								<td>(settings, amount of time etc.)</td>
+							</tr>
 							<tr>
 								<td colspan="2"><input type="submit"
-									value="Add Treatment Details" class="add-button" /></td>
+									value="Add Support System" class="add-button" /></td>
 							</tr>
 											
 							<tr>	
@@ -126,16 +115,52 @@
 			
 						</table>
 					</form>
-					<form method="POST" action="AddTreatmentDetailsServlet">
-								<input type="hidden" value="A"  name="patientID" />
-								<input type="hidden" value="B" name="doctorID" />
-								<input type="hidden" value="132" name="bP" />
-								<input type="hidden" value="110" name="hR" />
-								<input type="hidden" value="97" name="sPO2" />
-								<input type="hidden"  value="1600" name="fintake" />
-								<input type="hidden" value="900" name="foutput" /><input type="submit"
-									value="Add Treatment Details DEMO" class="add-button" />
+					<form method="POST" action="AddTreatmentDetails_SupportSystemsServlet">
+								<input type="hidden" value="<%=TreatmentDetailsID%>" name="treatmentDetailsID" />
+								<input type="hidden" value="ventilator" name="supportSystemName" />
+								<input type="hidden" value="24 hrs" name="amount" />
+								<input type="submit"
+									value="Add Support System DEMO" class="add-button" />
 					</form>
+					
+					
+					
+					<form method="GET" action="AddTreatmentDetails_SupportSystemsServlet">
+						<input type="hidden" value ="<%=TreatmentDetailsID%>" name="treatmentDetailsID"> 
+						<input type="submit"
+									value="Add next info" class="add-button" />
+					
+					</form>
+					
+					
+					
+					
+					
+					<table class="table">
+						 
+						
+						  	<tr>
+				                <th>ID</th>
+				                <th>Support System</th>
+				                <th>Amount</th>
+				                 
+				            </tr>
+				            <%
+					            ITreatmentDetailsDAO iTreatmentDetailsDAO = new TreatmentDetailsDAO();
+								ArrayList<TreatmentDetails_supportSystems> arrayList = iTreatmentDetailsDAO.getTreatmentDetails_supportSystemsByID(Integer.toString(TreatmentDetailsID));
+								
+								for(TreatmentDetails_supportSystems treatmentDetails_medicine : arrayList){
+							%>
+							 <tr>
+								<td> <%=treatmentDetails_medicine.getTreatmentDetails_supportSystemsID() %> </td>
+								<td> <%=treatmentDetails_medicine.getSystemName()%> </td>
+								<td> <%=treatmentDetails_medicine.getAmount() %> </td>
+							
+							</tr>			
+							<%	
+							   }
+				            %>     
+						</table>
 
 				</div>
 			</div>

@@ -57,4 +57,20 @@ public class AddTreatmentDetails_MedicineServlet extends HttpServlet {
 			}
 		
 	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		
+		try{response.setContentType("text/html");
+		
+		
+		request.setAttribute("TreatmentDetailsID", Integer.parseInt(request.getParameter("treatmentDetailsID")));
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addTreatmentDetails_SupportSystems.jsp");
+		dispatcher.forward(request, response);
+		
+		}catch(Exception e){
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Fail.jsp");
+			dispatcher.forward(request, response);
+		}
+	}
 }

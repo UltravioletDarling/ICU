@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import com.bean.TreatmentDetails;
 import com.bean.TreatmentDetails_medicine;
+import com.bean.TreatmentDetails_supportSystems;
 import com.util.DBConnectionRAZ;
 
 public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
@@ -225,6 +226,78 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
 //           e.printStackTrace();
 //        }       
 //		
+	}
+
+
+
+	@Override
+	public void addTreatmentDetails_supportSystems(TreatmentDetails_supportSystems treatmentDetails_supportSystems)
+			throws ClassNotFoundException {
+		Connection con = null;
+//      Statement statement = null;
+		 PreparedStatement preparedStatement = null;
+		  try {
+		      con = DBConnectionRAZ.getConnection();
+		      String sql = "insert into treatmentdetails_supportsystems" + "( idtreatmentdetails_supportsystems, treatmentDetailsID, sytemname, amount) values "
+		            + " (?,?,?,?)";
+		      
+		      preparedStatement = con.prepareStatement(sql);
+		      preparedStatement.setInt(1, treatmentDetails_supportSystems.getTreatmentDetails_supportSystemsID());
+		      preparedStatement.setInt(2, treatmentDetails_supportSystems.getTreatmentDetailsID());
+		      preparedStatement.setString(3, treatmentDetails_supportSystems.getSystemName());
+		      preparedStatement.setString(4, treatmentDetails_supportSystems.getAmount());
+		     
+		      preparedStatement.executeUpdate();
+		     
+		      System.out.println(sql);
+		  }
+		  catch(SQLException e)
+		  {
+		     e.printStackTrace();
+		  }
+	}
+
+
+
+	@Override
+	public ArrayList<TreatmentDetails_supportSystems> getTreatmentDetails_supportSystemsByID(String treatmentdetailsID) {
+		
+		
+		ArrayList<TreatmentDetails_supportSystems> treatmentDetails_supportSystemsList = new ArrayList<TreatmentDetails_supportSystems>();
+		String sql;
+		Connection connection = null;		
+		Statement statement = null;
+		//execution		
+		try {
+		//establish connection	
+		connection = DBConnectionRAZ.getConnection();
+		//statement 
+		statement = connection.createStatement();
+		//SQL line
+		sql = "select * from treatmentdetails_supportsystems where treatmentDetailsID = " + treatmentdetailsID ;
+		//execute query
+		ResultSet resultSet = statement.executeQuery(sql);
+		
+		//sort query result in to array list
+		while(resultSet.next()) {
+			TreatmentDetails_supportSystems TreatmentDetails_supportSystems = new TreatmentDetails_supportSystems();
+			TreatmentDetails_supportSystems.setTreatmentDetails_supportSystemsID(resultSet.getInt(1));
+			TreatmentDetails_supportSystems.setTreatmentDetailsID(resultSet.getInt(2));
+			TreatmentDetails_supportSystems.setSystemName(resultSet.getString(3));
+			TreatmentDetails_supportSystems.setAmount(resultSet.getString(4));
+
+			treatmentDetails_supportSystemsList.add(TreatmentDetails_supportSystems);
+		}
+		//close statement and connection
+		if (statement != null) statement.close();
+		if (connection != null) connection.close();
+		
+
+		}catch(Exception e){
+		
+		}
+		return treatmentDetails_supportSystemsList;
+		
 	}
 	
 }

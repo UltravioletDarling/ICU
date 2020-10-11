@@ -12,7 +12,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Display All  treatment Details of Patients</title>
+<title>Display All treatment Details of Patients</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -31,7 +31,7 @@
 						<i class="fas fa-laugh-wink"></i>
 					</div>
 					<div class="sidebar-brand-text mx-3">
-						<span>Brand</span>
+						<span>ICU Management</span>
 					</div>
 				</a>
 				<hr class="sidebar-divider my-0">
@@ -125,7 +125,7 @@
 			<footer class="bg-white sticky-footer">
 				<div class="container my-auto">
 					<div class="text-center my-auto copyright">
-						<span>Copyright © Brand 2020</span>
+						<span>Copyright © ICU Management 2020</span>
 					</div>
 				</div>
 			</footer>

@@ -31,7 +31,7 @@
 						<i class="fas fa-laugh-wink"></i>
 					</div>
 					<div class="sidebar-brand-text mx-3">
-						<span>Brand</span>
+						<span>ICU Management</span>
 					</div>
 				</a>
 				<hr class="sidebar-divider my-0">
@@ -100,7 +100,7 @@
 								<td>item id of the medicine</td>
 							</tr>
 							<tr>
-								<td>Dosage</td>
+								<td>Dossage</td>
 								<td><input type="text" required="required" name="dosage"  pattern="[A-Za-z0-9]{1,200}"/></td>
 	
 							</tr>
@@ -122,6 +122,20 @@
 								<input type="submit"
 									value="Add medicine DEMO" class="add-button" />
 					</form>
+					
+					
+					
+					<form method="GET" action="AddTreatmentDetails_MedicineServlet">
+						<input type="hidden" value ="<%=TreatmentDetailsID%>" name="treatmentDetailsID"> 
+						<input type="submit"
+									value="Add next info" class="add-button" />
+					
+					</form>
+					
+					
+					
+					
+					
 					<table class="table">
 						 
 						
@@ -153,7 +167,7 @@
 			<footer class="bg-white sticky-footer">
 				<div class="container my-auto">
 					<div class="text-center my-auto copyright">
-						<span>Copyright © Brand 2020</span>
+						<span>Copyright © ICU Management 2020</span>
 					</div>
 				</div>
 			</footer>

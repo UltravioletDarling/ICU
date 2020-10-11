@@ -63,6 +63,16 @@
 		<servlet-name>AddTreatmentDetails_MedicineServlet</servlet-name>
 		<url-pattern>/AddTreatmentDetails_MedicineServlet/*</url-pattern>
 	</servlet-mapping>
+	 <servlet>
+        <servlet-name>AddTreatmentDetails_SupportSystemsServlet</servlet-name>
+        <servlet-class>com.controller.AddTreatmentDetails_SupportSystemsServlet</servlet-class>
+ 	</servlet>
+	<servlet-mapping>
+	 	<servlet-name>AddTreatmentDetails_SupportSystemsServlet</servlet-name>
+		<url-pattern>/AddTreatmentDetails_SupportSystemsServlet</url-pattern>
+	</servlet-mapping>
+		
+	
  
  <servlet>
         <servlet-name>PatientHandoff_Servlet</servlet-name>
