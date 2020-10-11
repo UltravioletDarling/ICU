@@ -73,11 +73,7 @@ public inventoryitem getinventoryitemID(String itemid) {
 	return null;
 }
 
-@Override
-public ArrayList<inventoryitem> getinventoryitem() {
-	// TODO Auto-generated method stub
-	return null;
-}
+
 
 
 

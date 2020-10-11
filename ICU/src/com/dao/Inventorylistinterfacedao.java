@@ -9,6 +9,6 @@ public interface Inventorylistinterfacedao {
 
 	public inventoryitem getinventoryitemID(String itemid);
 	
-	public ArrayList<inventoryitem> getinventoryitem();
+	public ArrayList<inventoryitem> getdetails();
 
 }

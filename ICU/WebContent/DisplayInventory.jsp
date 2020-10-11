@@ -77,42 +77,47 @@
 
 					</div>
 				</nav>
+	
+<div class="limiter">
+<div class="container-table100">
+<div class="wrap-table100">
+				<div class="table100">
 					
 <table>
 			 <caption><h1>Main Inventory</h1></caption>
-			  	<tr>
-	              	   <th>Item ID</th>
-		               <th>Admin ID</th>
-		               <th>Item Name</th> 
-		               <th>Remaining Stock</th>
-		               <th>Aquired Date</th>
-		               <th>Expiry Date</th>
-		               <th>Unit Dosage</th>
-		               <th>Item Type</th>
-		               <th>Next Maintenance</th>
+			  	<tr class="table100-head">
+	              	   <th class="column1">Item ID</th>
+		               <th class="column2">Admin ID</th>
+		               <th class="column3">Item Name</th> 
+		               <th class="column4">Remaining Stock</th>
+		               <th class="column5">Aquired Date</th>
+		               <th class="column6">Expiry Date</th>
+		               <th class="column5">Unit Dosage</th>
+		               <th class="column4">Item Type</th>
+		               <th class="column3">Next Maintenance</th>
 		               <th colspan = "0"></th>
 		        </tr>
 		        
 		        <%
 		            Inventorylistinterfacedao inventorylistinterfacedao = new DisplayinventoryDao();
-		            ArrayList<inventoryitem> arrList = inventorylistinterfacedao.getinventoryitem();
-		        		        		for(inventoryitem inventoryitem: arrList){
+		            ArrayList<inventoryitem> arraylist = inventorylistinterfacedao.getdetails();
+		        		        		for(inventoryitem inventoryitem: arraylist){
 		        		        %>
 				
 		     <tr>
-					<td> <%=inventoryitem.getItemid() %></td>
-					<td> <%=inventoryitem.getAdminid() %></td>
-					<td> <%=inventoryitem.getName() %></td>
-					<td> <%=inventoryitem.getStock() %></td>
-					<td> <%=inventoryitem.getAquired() %></td>
-					<td> <%=inventoryitem.getExpiry() %></td>
-					<td> <%=inventoryitem.getUdosage() %></td>
-					<td> <%=inventoryitem.getType() %></td>
-					<td> <%=inventoryitem.getMaintenance() %></td>
-					<td> 
+					<td class="column1"> <%=inventoryitem.getItemid() %></td>
+					<td class="column2"> <%=inventoryitem.getAdminid() %></td>
+					<td class="column3"> <%=inventoryitem.getName() %></td>
+					<td class="column4"> <%=inventoryitem.getStock() %></td>
+					<td class="column5"> <%=inventoryitem.getAquired() %></td>
+					<td class="column6"> <%=inventoryitem.getExpiry() %></td>
+					<td class="column5"> <%=inventoryitem.getUdosage() %></td>
+					<td class="column4"> <%=inventoryitem.getType() %></td>
+					<td class="column3"> <%=inventoryitem.getMaintenance() %></td>
+					<td class="column1"> 
 						<form method="POST" action="#">
 						<input type="hidden" name="itemID" value="<%=inventoryitem.getItemid()%>"/>
-						<input type="submit" value= "selectInventoryItem" class="select-button" /> 
+						<input type="submit" value= "Select" class="select-button" /> 
 					   </form>
 					</td>
 					
@@ -122,7 +127,10 @@
 				      %>    
 				
 </table>
-
+</div>
+</div>
+</div>
+</div>
 
 
 		        
