@@ -1,5 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@page import="com.bean.TreatmentDetails"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="com.dao.ITreatmentDetailsDAO"%>
+<%@page import="com.dao.TreatmentDetailsDAO"%>
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 
@@ -7,7 +12,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Add Treatment Details of Patients</title>
+<title>Display All treatment Details of Patients</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -36,7 +41,7 @@
 					<li class="nav-item" role="presentation"><a class="nav-link"
 						href="profile.html"><i class="fas fa-user"></i><span>Profile</span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
-						href="DisplayAllTreatmentDetails.jsp"><i class="fas fa-table"></i><span>Treatment Details Table</span></a></li>
+						href="#"><i class="fas fa-table"></i><span>Treatment Details Table</span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
 						href="login.html"><i class="far fa-user-circle"></i><span>Login</span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
@@ -73,70 +78,48 @@
 					</div>
 				</nav>
 				<div class="container-fluid">
-					<h3 class="text-dark mb-1">Insert the Patient's Treatment
-						Details</h3>
-						<p>PLease fill out all fields before adding</p>
-					<form method="POST" action="AddTreatmentDetailsServlet">
+					<div align="left">		
 						<table class="table">
-
-							<tr>
-								<td>Patient ID</td>
-								<td><input type="text" required="required" name="patientID" pattern="[A-Za-z0-9]{1,45}"/></td>
-								<td>Note: IDs must be less than 45 characters long with no special characters</td>
-							</tr>
-							<tr>
-								<td>Doctor ID</td>
-								<td><input type="text" required="required" name="doctorID" pattern="[A-Za-z0-9]{1,45}"/></td>
-	
-							</tr>
-							<tr>
-								<td>Blood Pressure</td>
-								<td><input type="text" required="required" name="bP" pattern="[0-9]{1,3}"/></td>
-								<td>BPM</td>
-							</tr>
-							<tr>
-								<td>Heart Rate</td>
-								<td><input type="text" required="required" name="hR" pattern="[0-9]{1,3}"/></td>
-								<td>mmHg</td>
-							</tr>
-							<tr>
-								<td>SPO2</td>
-								<td><input type="number" required="required" name="sPO2" min="1" max="100"/></td>
-								<td>%</td>
-							</tr>
-							<tr>
-								<td>Fluid In-take</td>
-								<td><input type="text" required="required" name="fintake" pattern="[0-9]{1,5}"/></td>
-								<td>ml</td>
-							</tr>
-							<tr>
-								<td>Fluid Output</td>
-								<td><input type="text" required="required" name="foutput" pattern="[0-9]{1,5}"/></td>
-								<td>ml</td>
-							</tr>
-
-							<tr>
-								<td colspan="2"><input type="submit"
-									value="Add Treatment Details" class="add-button" /></td>
-							</tr>
-											
-							<tr>	
-								<td colspan="2"><input type="reset" value="Reset" class="reset-button" /></td>
-							</tr> 
-			
+						 
+						
+						  	<tr>
+				                <th>Treatment Details ID</th>
+				                <th>Patient ID</th>
+				                <th>Doctor ID</th>
+				                <th>Blood Pressure</th>
+				                <th>Heart Rate</th>
+				                <th>SPO2</th>
+				                <th>Fluid In-take</th>
+				                <th>Fluid Output</th>
+				               	<th>Select</th> 
+				            </tr>
+				            <%
+					            ITreatmentDetailsDAO iTreatmentDetailsDAO = new TreatmentDetailsDAO();
+								ArrayList<TreatmentDetails> arrayList = iTreatmentDetailsDAO.getTreatmentDetails();
+								
+								for(TreatmentDetails treatmentDetails : arrayList){
+							%>
+							 <tr>
+								<td> <%=treatmentDetails.getTreatmentDetailsID() %> </td>
+								<td> <%=treatmentDetails.getPatientID() %> </td>
+								<td> <%=treatmentDetails.getDoctorID()%> </td>
+								<td> <%=treatmentDetails.getbP() %> </td>
+								<td> <%=treatmentDetails.gethR()%> </td>
+								<td> <%=treatmentDetails.getsPO2() %> </td>
+								<td> <%=treatmentDetails.getFintake() %> </td>
+								<td> <%=treatmentDetails.getFoutput() %> </td>	
+								<td> 
+									<form method="POST" action="#">
+										<input type="hidden" name="treatmentDetailsID" value="<%=treatmentDetails.getTreatmentDetailsID()%>"/>
+										<input type="submit" value= "selectTreatmentDetails" class="select-button" /> 
+									 </form>
+								 </td>
+								</tr>			
+							<%	
+							   }
+				            %>     
 						</table>
-					</form>
-					<form method="POST" action="AddTreatmentDetailsServlet">
-								<input type="hidden" value="A"  name="patientID" />
-								<input type="hidden" value="B" name="doctorID" />
-								<input type="hidden" value="132" name="bP" />
-								<input type="hidden" value="110" name="hR" />
-								<input type="hidden" value="97" name="sPO2" />
-								<input type="hidden"  value="1600" name="fintake" />
-								<input type="hidden" value="900" name="foutput" /><input type="submit"
-									value="Add Treatment Details DEMO" class="add-button" />
-					</form>
-
+					</div>
 				</div>
 			</div>
 			<footer class="bg-white sticky-footer">
