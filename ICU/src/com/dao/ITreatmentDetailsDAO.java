@@ -3,6 +3,7 @@ package com.dao;
 import java.util.ArrayList;
 
 import com.bean.TreatmentDetails;
+import com.bean.TreatmentDetails_investigations;
 import com.bean.TreatmentDetails_medicine;
 import com.bean.TreatmentDetails_supportSystems;
 
@@ -23,4 +24,10 @@ public interface ITreatmentDetailsDAO {
 	public void addTreatmentDetails_supportSystems(TreatmentDetails_supportSystems treatmentDetails_supportSystems) throws ClassNotFoundException;
 	
 	public ArrayList<TreatmentDetails_supportSystems> getTreatmentDetails_supportSystemsByID(String treatmentdetailsID);
+	
+
+			
+	public void addTreatmentDetails_investigations(TreatmentDetails_investigations treatmentDetails_investigations) throws ClassNotFoundException;
+			
+	public ArrayList<TreatmentDetails_investigations> getTreatmentDetails_investigationsByID(String treatmentdetailsID);
 }

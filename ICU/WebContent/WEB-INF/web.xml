@@ -7,8 +7,6 @@
       <servlet-name>Inventoryitemservlet</servlet-name>
       <servlet-class>com.controller.Inventoryitemservlet</servlet-class> 
  </servlet>
-
- 
 <servlet-mapping>
 <servlet-name>Inventoryitemservlet</servlet-name>
 <url-pattern>/Inventoryitemservlet</url-pattern>
@@ -71,7 +69,15 @@
 	 	<servlet-name>AddTreatmentDetails_SupportSystemsServlet</servlet-name>
 		<url-pattern>/AddTreatmentDetails_SupportSystemsServlet</url-pattern>
 	</servlet-mapping>
-		
+	 <servlet>
+        <servlet-name>AddTreatmentDetails_InvestigationsServlet</servlet-name>
+        <servlet-class>com.controller.AddTreatmentDetails_InvestigationsServlet</servlet-class>
+ 	</servlet>
+	<servlet-mapping>
+	 	<servlet-name>AddTreatmentDetails_InvestigationsServlet</servlet-name>
+		<url-pattern>/AddTreatmentDetails_InvestigationsServlet</url-pattern>
+	</servlet-mapping>
+	
 	
  
  <servlet>

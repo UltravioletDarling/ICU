@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import com.bean.TreatmentDetails;
+import com.bean.TreatmentDetails_investigations;
 import com.bean.TreatmentDetails_medicine;
 import com.bean.TreatmentDetails_supportSystems;
 import com.util.DBConnectionRAZ;
@@ -233,9 +234,9 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
 	@Override
 	public void addTreatmentDetails_supportSystems(TreatmentDetails_supportSystems treatmentDetails_supportSystems)
 			throws ClassNotFoundException {
+		
 		Connection con = null;
-//      Statement statement = null;
-		 PreparedStatement preparedStatement = null;
+		PreparedStatement preparedStatement = null;
 		  try {
 		      con = DBConnectionRAZ.getConnection();
 		      String sql = "insert into treatmentdetails_supportsystems" + "( idtreatmentdetails_supportsystems, treatmentDetailsID, sytemname, amount) values "
@@ -298,6 +299,76 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
 		}
 		return treatmentDetails_supportSystemsList;
 		
+	}
+
+
+
+	@Override
+	public void addTreatmentDetails_investigations(TreatmentDetails_investigations treatmentDetails_investigations)
+			throws ClassNotFoundException {
+		Connection con = null;
+		PreparedStatement preparedStatement = null;
+		  try {
+		      con = DBConnectionRAZ.getConnection();
+		      String sql = "insert into treatmentdetails_investigations" + "( idtreatmentdetails_investigations, treatmentDetailsID, investigationname, result) values "
+		            + " (?,?,?,?)";
+		      
+		      preparedStatement = con.prepareStatement(sql);
+		      preparedStatement.setInt(1, treatmentDetails_investigations.getTreatmentDetails_investigationsID());
+		      preparedStatement.setInt(2, treatmentDetails_investigations.getTreatmentDetailsID());
+		      preparedStatement.setString(3, treatmentDetails_investigations.getInvestigationname());
+		      preparedStatement.setString(4, treatmentDetails_investigations.getResult());
+		     
+		      preparedStatement.executeUpdate();
+		     
+		      System.out.println(sql);
+		  }
+		  catch(SQLException e)
+		  {
+		     e.printStackTrace();
+		  }
+		
+	}
+
+
+
+	@Override
+	public ArrayList<TreatmentDetails_investigations> getTreatmentDetails_investigationsByID(String treatmentdetailsID) {
+		
+		ArrayList<TreatmentDetails_investigations> treatmentDetails_investigationsList = new ArrayList<TreatmentDetails_investigations>();
+		String sql;
+		Connection connection = null;		
+		Statement statement = null;
+		//execution		
+		try {
+		//establish connection	
+		connection = DBConnectionRAZ.getConnection();
+		//statement 
+		statement = connection.createStatement();
+		//SQL line
+		sql = "select * from treatmentdetails_investigations where treatmentDetailsID = " + treatmentdetailsID ;
+		//execute query
+		ResultSet resultSet = statement.executeQuery(sql);
+		
+		//sort query result in to array list
+		while(resultSet.next()) {
+			TreatmentDetails_investigations TreatmentDetails_investigations = new TreatmentDetails_investigations();
+			TreatmentDetails_investigations.setTreatmentDetails_investigationsID(resultSet.getInt(1));
+			TreatmentDetails_investigations.setTreatmentDetailsID(resultSet.getInt(2));
+			TreatmentDetails_investigations.setInvestigationname(resultSet.getString(3));
+			TreatmentDetails_investigations.setResult(resultSet.getString(4));
+
+			treatmentDetails_investigationsList.add(TreatmentDetails_investigations);
+		}
+		//close statement and connection
+		if (statement != null) statement.close();
+		if (connection != null) connection.close();
+		
+
+		}catch(Exception e){
+		
+		}
+		return treatmentDetails_investigationsList;
 	}
 	
 }
