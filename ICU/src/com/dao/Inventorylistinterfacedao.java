@@ -8,6 +8,6 @@ public interface Inventorylistinterfacedao {
 	public void addItem(inventoryitem inventoryitem) throws ClassNotFoundException;
 
 	public inventoryitem getinventoryitemID(String itemid);
-	ArrayList<inventoryitem> getinventryitem();
+	ArrayList<inventoryitem> getinventoryitem();
 
 }

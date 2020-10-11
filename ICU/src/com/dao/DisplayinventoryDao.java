@@ -12,7 +12,7 @@ import com.bean.inventoryitem;
 import com.util.DBConnection;
 
 
-public class DisplayinventoryDao implements Inventorylistinterfacedao {
+public class DisplayinventoryDao implements Inventorylistinterfacedao  {
 	
 	private static Connection con = null;
 	private static Statement stmt = null;
@@ -55,8 +55,9 @@ public ArrayList<inventoryitem> getdetails() {
 	        
 		} catch (Exception e) {
 			e.printStackTrace();
+			
 		}
-	    System.out.println("");
+	    
 		return inventorylist;
 	}
 
@@ -73,9 +74,13 @@ public inventoryitem getinventoryitemID(String itemid) {
 }
 
 @Override
-public ArrayList<inventoryitem> getinventryitem() {
+public ArrayList<inventoryitem> getinventoryitem() {
 	// TODO Auto-generated method stub
 	return null;
 }
+
+
+
+
 
 }

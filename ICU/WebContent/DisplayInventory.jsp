@@ -95,8 +95,8 @@
 		        
 		        <%
 		            Inventorylistinterfacedao inventorylistinterfacedao = new DisplayinventoryDao();
-		            ArrayList<inventoryitem> arrayList = inventorylistinterfacedao.getinventoryitem;
-		        		        		for(inventoryitem inventoryitem: arrayList){
+		            ArrayList<inventoryitem> arrList = inventorylistinterfacedao.getinventoryitem;
+		        		        		for(inventoryitem inventoryitem: arrList){
 		        		        %>
 				
 		     <tr>

@@ -11,6 +11,8 @@ public class inventoryitem {
 	String type;
 	String maintenance;
 	
+	public inventoryitem() {}
+	
 	public inventoryitem(String itemid, String adminid, String name, String stock, String aquired, String expiry,
 			String udosage, String type, String maintenance) {
 
@@ -27,10 +29,6 @@ public class inventoryitem {
 	}
 	
 	
-	public inventoryitem() {
-		// TODO Auto-generated constructor stub
-	}
-   
 	
 	public String getinventoryitemID() {
 		return itemid;
