@@ -1,10 +1,10 @@
-<%@page import="com.bean.inventoryitem"%>
-<%@page import="com.controller.Displayinventoryservlet"%>
-<%@page import="com.dao.DisplayinventoryDao"%>
-<%@page import="com.dao.Inventorylistinterfacedao"%>
+<%@page import="com.bean.TreatmentDetails"%>
 <%@page import="java.util.ArrayList"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@page import="com.dao.ITreatmentDetailsDAO"%>
+<%@page import="com.dao.TreatmentDetailsDAO"%>
+<%@page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 
@@ -12,7 +12,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Blank Page - Brand</title>
+<title>Display All treatment Details of Patients</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -37,11 +37,11 @@
 				<hr class="sidebar-divider my-0">
 				<ul class="nav navbar-nav text-light" id="accordionSidebar">
 					<li class="nav-item" role="presentation"><a class="nav-link"
-						href="index.html"><i class="fas fa-tachometer-alt"></i><span>Dashboard</span></a></li>
+						href="index.html"><i class="fas fa-tachometer-alt"></i><span>DashBoard</span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
 						href="profile.html"><i class="fas fa-user"></i><span>Profile</span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
-						href="table.html"><i class="fas fa-table"></i><span>Table</span></a></li>
+						href="#"><i class="fas fa-table"></i><span>Treatment Details Table</span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
 						href="login.html"><i class="far fa-user-circle"></i><span>Login</span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
@@ -77,55 +77,50 @@
 
 					</div>
 				</nav>
-					
-<table>
-			 <caption><h1>Main Inventory</h1></caption>
-			  	<tr>
-	              	   <th>Item ID</th>
-		               <th>Admin ID</th>
-		               <th>Item Name</th> 
-		               <th>Remaining Stock</th>
-		               <th>Aquired Date</th>
-		               <th>Expiry Date</th>
-		               <th>Unit Dosage</th>
-		               <th>Item Type</th>
-		               <th>Next Maintenance</th>
-		               <th colspan = "0"></th>
-		        </tr>
-		        
-		        <%
-		            Inventorylistinterfacedao inventorylistinterfacedao = new DisplayinventoryDao();
-		            ArrayList<inventoryitem> arrList = inventorylistinterfacedao.getinventoryitem();
-		        		        		for(inventoryitem inventoryitem: arrList){
-		        		        %>
-				
-		     <tr>
-					<td> <%=inventoryitem.getItemid() %></td>
-					<td> <%=inventoryitem.getAdminid() %></td>
-					<td> <%=inventoryitem.getName() %></td>
-					<td> <%=inventoryitem.getStock() %></td>
-					<td> <%=inventoryitem.getAquired() %></td>
-					<td> <%=inventoryitem.getExpiry() %></td>
-					<td> <%=inventoryitem.getUdosage() %></td>
-					<td> <%=inventoryitem.getType() %></td>
-					<td> <%=inventoryitem.getMaintenance() %></td>
-					<td> 
-						<form method="POST" action="#">
-						<input type="hidden" name="itemID" value="<%=inventoryitem.getItemid()%>"/>
-						<input type="submit" value= "selectInventoryItem" class="select-button" /> 
-					   </form>
-					</td>
-					
-				</tr>			
-					<%	
-				    }
-				      %>    
-				
-</table>
-
-
-
-		        
+				<div class="container-fluid">
+					<div align="left">		
+						<table class="table">
+						 
+						
+						  	<tr>
+				                <th>Treatment Details ID</th>
+				                <th>Patient ID</th>
+				                <th>Doctor ID</th>
+				                <th>Blood Pressure</th>
+				                <th>Heart Rate</th>
+				                <th>SPO2</th>
+				                <th>Fluid In-take</th>
+				                <th>Fluid Output</th>
+				               	<th>Select</th> 
+				            </tr>
+				            <%
+					            ITreatmentDetailsDAO iTreatmentDetailsDAO = new TreatmentDetailsDAO();
+								ArrayList<TreatmentDetails> arrayList = iTreatmentDetailsDAO.getTreatmentDetails();
+								
+								for(TreatmentDetails treatmentDetails : arrayList){
+							%>
+							 <tr>
+								<td> <%=treatmentDetails.getTreatmentDetailsID() %> </td>
+								<td> <%=treatmentDetails.getPatientID() %> </td>
+								<td> <%=treatmentDetails.getDoctorID()%> </td>
+								<td> <%=treatmentDetails.getbP() %> </td>
+								<td> <%=treatmentDetails.gethR()%> </td>
+								<td> <%=treatmentDetails.getsPO2() %> </td>
+								<td> <%=treatmentDetails.getFintake() %> </td>
+								<td> <%=treatmentDetails.getFoutput() %> </td>	
+								<td> 
+									<form method="POST" action="#">
+										<input type="hidden" name="treatmentDetailsID" value="<%=treatmentDetails.getTreatmentDetailsID()%>"/>
+										<input type="submit" value= "selectTreatmentDetails" class="select-button" /> 
+									 </form>
+								 </td>
+								</tr>			
+							<%	
+							   }
+				            %>     
+						</table>
+					</div>
+				</div>
 			</div>
 			<footer class="bg-white sticky-footer">
 				<div class="container my-auto">
