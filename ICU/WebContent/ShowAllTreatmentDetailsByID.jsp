@@ -262,7 +262,7 @@
 									 				</form>
 												</td>
 												<td>  
-													<form method="POST" action="">
+													<form method="POST" action="DeleteTreatmentDetails_SupportSystemsServlet">
 														<input type="hidden" name="treatmentDetailsID" value="<%=treatmentDetails.getTreatmentDetailsID()%>"/>
 														<input type="hidden" name="treatmentDetailsID_SupportSystems" value="<%=treatmentDetails_medicine.getTreatmentDetails_supportSystemsID() %>"/>
 														<input type="submit" value= "Delete" class="select-button" /> 

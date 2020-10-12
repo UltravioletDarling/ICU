@@ -105,6 +105,24 @@
 	 	<servlet-name>DeleteTreatmentDetails_MedicineServlet</servlet-name>
 		<url-pattern>/DeleteTreatmentDetails_MedicineServlet</url-pattern>
 	</servlet-mapping>
+ 	<servlet>        
+	    <servlet-name>DeleteTreatmentDetails_SupportSystemsServlet</servlet-name>
+        <servlet-class>com.controller.DeleteTreatmentDetails_SupportSystemsServlet</servlet-class>
+ 	</servlet>
+	<servlet-mapping>
+	 	<servlet-name>DeleteTreatmentDetails_SupportSystemsServlet</servlet-name>
+		<url-pattern>/DeleteTreatmentDetails_SupportSystemsServlet</url-pattern>
+	</servlet-mapping>
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
  
  <servlet>
         <servlet-name>PatientHandoff_Servlet</servlet-name>

@@ -409,7 +409,30 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
 
 	@Override
 	public void DeleteTreatmentDetails_supportSystemsByID(String treatmentDetails_supportSystems) {
-		// TODO Auto-generated method stub
+		Connection con = null;
+
+        Statement statement = null;
+    
+        
+        try {
+            con = DBConnectionRAZ.getConnection();
+            String sql = "delete from treatmentdetails_supportsystems where idtreatmentdetails_supportsystems = "
+            + treatmentDetails_supportSystems ;
+            
+           
+            
+	        statement = con.createStatement();
+            statement.executeUpdate(sql);
+            con.close();
+            statement.close();
+           
+            
+        }
+        catch(SQLException e)
+        {
+        	
+           e.printStackTrace();
+        }  
 		
 	}
 
