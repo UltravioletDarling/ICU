@@ -89,7 +89,14 @@
 	 	<servlet-name>AddTreatmentDetails_InvestigationsServlet</servlet-name>
 		<url-pattern>/AddTreatmentDetails_InvestigationsServlet</url-pattern>
 	</servlet-mapping>
-	
+	<servlet>        
+	    <servlet-name>DisplayAllTreatmentDetailsServlet</servlet-name>
+        <servlet-class>com.controller.DisplayAllTreatmentDetailsServlet</servlet-class>
+ 	</servlet>
+	<servlet-mapping>
+	 	<servlet-name>DisplayAllTreatmentDetailsServlet</servlet-name>
+		<url-pattern>/DisplayAllTreatmentDetailsServlet</url-pattern>
+	</servlet-mapping>
 	
  
  <servlet>

@@ -141,8 +141,8 @@
 						
 						  	<tr>
 				                <th>ID</th>
-				                <th>Support System</th>
-				                <th>Amount</th>
+				                <th>Investigation Name</th>
+				                <th>Result</th>
 				                 
 				            </tr>
 				            <%

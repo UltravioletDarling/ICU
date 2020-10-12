@@ -9,6 +9,10 @@
 <html>
 
 <head>
+   <%
+					            ITreatmentDetailsDAO iTreatmentDetailsDAO = new TreatmentDetailsDAO();
+								ArrayList<TreatmentDetails> arrayList = iTreatmentDetailsDAO.getTreatmentDetails();
+							%>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
@@ -93,10 +97,8 @@
 				                <th>Fluid Output</th>
 				               	<th>Select</th> 
 				            </tr>
-				            <%
-					            ITreatmentDetailsDAO iTreatmentDetailsDAO = new TreatmentDetailsDAO();
-								ArrayList<TreatmentDetails> arrayList = iTreatmentDetailsDAO.getTreatmentDetails();
-								
+				         
+							<% 
 								for(TreatmentDetails treatmentDetails : arrayList){
 							%>
 							 <tr>
@@ -109,7 +111,7 @@
 								<td> <%=treatmentDetails.getFintake() %> </td>
 								<td> <%=treatmentDetails.getFoutput() %> </td>	
 								<td> 
-									<form method="POST" action="#">
+									<form method="POST" action="DisplayAllTreatmentDetailsServlet">
 										<input type="hidden" name="treatmentDetailsID" value="<%=treatmentDetails.getTreatmentDetailsID()%>"/>
 										<input type="submit" value= "selectTreatmentDetails" class="select-button" /> 
 									 </form>

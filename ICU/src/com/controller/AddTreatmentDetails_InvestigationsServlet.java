@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.bean.TreatmentDetails_investigations;
-import com.bean.TreatmentDetails_supportSystems;
+
 import com.dao.ITreatmentDetailsDAO;
 import com.dao.TreatmentDetailsDAO;
 
