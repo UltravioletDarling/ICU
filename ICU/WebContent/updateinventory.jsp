@@ -1,21 +1,10 @@
+<%@page import="com.bean.inventoryitem"%>
+<%@page import="com.controller.Inventoryitemservlet"%>
+<%@page import="com.dao.InsertinventoryDao"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
 <html>
-
-<%
-	String itemid = request.getParameter("itemid");
-	String adminid = request.getParameter("adminid");
-	String name = request.getParameter("name");
-	String stock = request.getParameter("stock");
-	String aquired = request.getParameter("aquired");
-	String expiry = request.getParameter("expiry");
-	String udosage = request.getParameter("udosage");
-	String type = request.getParameter("type");
-	String maintenance = request.getParameter("maintenance");
-%>
-
-
 
 <head>
 <meta charset="utf-8">
@@ -86,61 +75,73 @@
 
 					</div>
 				</nav>
-				
-				 <div class="container-fluid">
-                <h3 class="text-dark mb-1" style="margin: 48px;">Inventory Manager</h3>
-            </div>
-            <form action="Updateinventoryservlet" method="post">
-            
-            <table>
-	     	<tr>
-	     	
-			<td>Item ID</td>
-			<td><input type="text" name="itemid" value="<%= itemid %>" readonly></td>
-		    </tr>
-		    <tr>
-			<td>Admin ID</td>
-			<td><input type="text" name="adminid" value="<%= adminid %>"></td>
-		    </tr>
-		     <tr>
-			<td>Item Name</td>
-			<td><input type="text" name="name" value="<%= name %>"></td>
-		    </tr>
-		     <tr>
-			<td>Stock</td>
-			<td><input type="text" name="stock" value="<%= stock %>"></td>
-		    </tr>
-		     <tr>
-			<td>Aquired Date</td>
-			<td><input type="date" name="aquired" value="<%= aquired %>"></td>
-		    </tr>
-		     <tr>
-			<td>Expiry Date</td>
-			<td><input type="text" name="expiry" value="<%= expiry %>"></td>
-		    </tr>
-		     <tr>
-			<td>Unit Dosage</td>
-			<td><input type="text" name="udosage" value="<%= udosage %>"></td>
-		    </tr>
-		    <tr>
-			<td>Item Type</td>
-			<td><input type="text" name="type" value="<%= type %>"></td>
-		    </tr>
-		     <tr>
-			<td>Next Maintenance Date</td>
-			<td><input type="date" name="maintenance" value="<%= maintenance %>"></td>
-		    </tr>
-		    
-	</table>
-	<br>
-	<input type="submit" name="submit" value="Update Record">
-            
-            
-            </form>
+				<div class="container-fluid">
+					<h3 class="text-dark mb-1">Add Item Details</h3>
+					<form method="POST" action="#">
+						<table>
+
+							<tr>
+								<td>Item ID</td>
+								<td><input id="itemid" name="itemid" class="form-control" type="text" ></td>
+							</tr>
+							<tr>
+								<td>Admin ID</td>
+								<td><input id="adminid" name="adminid" class="form-control" type="text" ></td>
+							</tr>
+							<tr>
+								<td>Item Name</td>
+								<td><input id="name" name="name" class="form-control" type="text" ></td>
+							</tr>
+							<tr>
+								<td>Remaining Stock</td>
+								<td><input id="stock" name="stock" class="form-control" type="text" ></td>
+							</tr>
+							<tr>
+								<td>Aquired Date</td>
+								<td><input id="aquired" name="aquired" class="form-control" type="text" ></td>
+							</tr>
+							<tr>
+								<td>Expiry Date</td>
+								<td><input id="expiry" name="expiry" class="form-control" type="text" ></td>
+							</tr>
+							<tr>
+								<td>Unit Dosage</td>
+								<td><input id="udosage" name="udosage" class="form-control" type="text" ></td>
+							</tr>
+							<tr>
+								<td>Item Type</td>
+								<td><Select id="type" name="type" class="form-control" type="text"  >
+								 <option value="Medicine">Medicine</option>
+                                <option Equipment>Equipment</option></td>
+							</tr>
+							<tr>
+								<td>Next Maintenance</td>
+								<td><input id="maintenance" name="maintenance" class="form-control" type="date"></td>
+							</tr>
 
 
-
-		        
+							<tr>
+								<td colspan="2"><input type="submit"
+									value="Add Item To Database" class="add-button" /></td>
+							</tr>
+							<!-- 
+			<tr>	
+				<td colspan="2"><input type="reset" value="Reset" class="reset-button" /></td>
+			</tr> 
+			-->
+						</table>
+					</form>
+					<!--  
+	<form method="POST" action="ListEmployeeServlet">
+		<table>
+			<tr>
+				<td colspan="2"><input type="submit" value="List All Employees" class="list-button" />
+				</td>
+			</tr>
+		</table>
+	</form>
+	-->
+				</div>
 			</div>
 			<footer class="bg-white sticky-footer">
 				<div class="container my-auto">
@@ -160,13 +161,6 @@
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.js"></script>
 	<script src="assets/js/theme.js"></script>
-	
-	<script>
-    window.onload = function() {
-        document.getElementById("autoSubmit").submit();
-    }
-</script>
-
 </body>
 
 </html>

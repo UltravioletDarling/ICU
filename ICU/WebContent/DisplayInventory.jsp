@@ -12,7 +12,7 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Blank Page - Brand</title>
+<title>Inventory Manager</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
@@ -84,7 +84,7 @@
 				<div class="table100">
 					
 <table>
-			 <caption><h1>Main Inventory</h1></caption>
+			 
 			  	<tr class="table100-head">
 	              	   <th class="column1">Item ID</th>
 		               <th class="column2">Admin ID</th>
@@ -115,7 +115,7 @@
 					<td class="column4"> <%=inventoryitem.getType() %></td>
 					<td class="column3"> <%=inventoryitem.getMaintenance() %></td>
 					<td class="column1"> 
-						<form method="POST" action="#">
+						<form method="POST" action="DisplayInventorybyid.jsp">
 						<input type="hidden" name="itemID" value="<%=inventoryitem.getItemid()%>"/>
 						<input type="submit" value= "Select" class="select-button" /> 
 					   </form>

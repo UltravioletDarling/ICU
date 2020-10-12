@@ -42,6 +42,18 @@
 <url-pattern>/Deleteitemservlet</url-pattern>
 </servlet-mapping>
 
+
+
+<servlet>
+      <servlet-name>Updateinventoryservlet</servlet-name>
+      <servlet-class>com.controller.Updateinventoryservlet</servlet-class> 
+ </servlet>
+<servlet-mapping>
+<servlet-name>Updateinventoryservlet</servlet-name>
+<url-pattern>/Updateinventoryservlet</url-pattern>
+</servlet-mapping>
+
+
 <!-- Razta we XML stuff -->>
 
 	<servlet>
