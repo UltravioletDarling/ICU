@@ -29,5 +29,18 @@ public class DisplayAllTreatmentDetailsServlet extends HttpServlet {
 			dispatcher.forward(request, response);		
 		}		
 	}
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		try{response.setContentType("text/html; charset=ISO-8859-1");
+		
+		
+		request.setAttribute("TreatmentDetailsID", Integer.parseInt(request.getParameter("treatmentDetailsID")));
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/DisplayAllTreatmentDetails.jsp");
+		dispatcher.forward(request, response);
+		}catch(Exception e){
+			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Fail.jsp");
+			dispatcher.forward(request, response);
+		}
+	}
 
 }

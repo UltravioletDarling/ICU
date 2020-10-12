@@ -26,7 +26,7 @@ public class AddTreatmentDetails_InvestigationsServlet extends HttpServlet {
 		
 		
 		request.setAttribute("TreatmentDetailsID", Integer.parseInt(request.getParameter("treatmentDetailsID")));
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/DisplayAllTreatmentDetails.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addTreatmentDetails_investigations.jsp");
 		dispatcher.forward(request, response);
 		}catch(Exception e){
 			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Fail.jsp");

@@ -115,20 +115,24 @@
 			
 						</table>
 					</form>
-					<form method="POST" action="AddTreatmentDetails_MedicineServlet">
-								<input type="hidden" value="<%=TreatmentDetailsID%>" name="treatmentDetailsID" />
-								<input type="hidden" value="111" name="itemID" />
-								<input type="hidden" value="1111" name="dosage" />
-								<input type="submit"
-									value="Add medicine DEMO" class="add-button" />
-					</form>
-					
-					
-					
-					<form method="GET" action="AddTreatmentDetails_MedicineServlet">
+					<div class="d-flex justify-content-end">
+						<form method="POST" action="AddTreatmentDetails_MedicineServlet">
+									<input type="hidden" value="<%=TreatmentDetailsID%>" name="treatmentDetailsID" />
+									<input type="hidden" value="I111" name="itemID" />
+									<input type="hidden" value="500mg twice daily" name="dosage" />
+									<input type="submit"
+										value="Add medicine DEMO" class="add-button" />
+						</form>
+						<form method="POST" action="DisplayAllTreatmentDetailsServlet">
+							<input type="hidden" value ="<%=TreatmentDetailsID%>" name="treatmentDetailsID"> 
+							<input type="submit"
+										value="Display All Treatment details" class="add-button" />
+						</form>
+					</div>
+					<form method="GET" action="AddTreatmentDetails_SupportSystemsServlet">
 						<input type="hidden" value ="<%=TreatmentDetailsID%>" name="treatmentDetailsID"> 
 						<input type="submit"
-									value="Add next info" class="add-button" />
+									value="Add Support Systems" class="add-button" />
 					
 					</form>
 					

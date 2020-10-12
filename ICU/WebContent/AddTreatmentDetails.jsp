@@ -126,16 +126,19 @@
 			
 						</table>
 					</form>
-					<form method="POST" action="AddTreatmentDetailsServlet">
-								<input type="hidden" value="P123"  name="patientID" />
-								<input type="hidden" value="D123" name="doctorID" />
-								<input type="hidden" value="132" name="bP" />
-								<input type="hidden" value="110" name="hR" />
-								<input type="hidden" value="97" name="sPO2" />
-								<input type="hidden"  value="1600" name="fintake" />
-								<input type="hidden" value="900" name="foutput" /><input type="submit"
-									value="Add Treatment Details DEMO" class="add-button" />
-					</form>
+					<div class="d-flex justify-content-end">	
+						<form method="POST" action="AddTreatmentDetailsServlet">
+									<input type="hidden" value="P123"  name="patientID" />
+									<input type="hidden" value="D123" name="doctorID" />
+									<input type="hidden" value="132" name="bP" />
+									<input type="hidden" value="110" name="hR" />
+									<input type="hidden" value="97" name="sPO2" />
+									<input type="hidden"  value="1600" name="fintake" />
+									<input type="hidden" value="900" name="foutput" /><input type="submit"
+										value="Add Treatment Details DEMO" class="add-button" />
+						</form>
+						
+					</div>	
 
 				</div>
 			</div>

@@ -113,8 +113,22 @@
 	 	<servlet-name>DeleteTreatmentDetails_SupportSystemsServlet</servlet-name>
 		<url-pattern>/DeleteTreatmentDetails_SupportSystemsServlet</url-pattern>
 	</servlet-mapping>
- 
- 
+ 	<servlet>        
+	    <servlet-name>DeleteTreatmentDetails_InvestigationsServlet</servlet-name>
+        <servlet-class>com.controller.DeleteTreatmentDetails_InvestigationsServlet</servlet-class>
+ 	</servlet>
+	<servlet-mapping>
+	 	<servlet-name>DeleteTreatmentDetails_InvestigationsServlet</servlet-name>
+		<url-pattern>/DeleteTreatmentDetails_InvestigationsServlet</url-pattern>
+	</servlet-mapping>
+ 	<servlet>        
+	    <servlet-name>DeleteTreatmentDetails_ALLByIDServelet</servlet-name>
+        <servlet-class>com.controller.DeleteTreatmentDetails_ALLByIDServelet</servlet-class>
+ 	</servlet>
+	<servlet-mapping>
+	 	<servlet-name>DeleteTreatmentDetails_ALLByIDServelet</servlet-name>
+		<url-pattern>/DeleteTreatmentDetails_ALLByIDServelet</url-pattern>
+	</servlet-mapping>
  
  
  

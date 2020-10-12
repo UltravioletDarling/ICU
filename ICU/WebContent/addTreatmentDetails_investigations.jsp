@@ -115,20 +115,27 @@
 			
 						</table>
 					</form>
-					<form method="POST" action="AddTreatmentDetails_InvestigationsServlet">
-								<input type="hidden" value="<%=TreatmentDetailsID%>" name="treatmentDetailsID" />
-								<input type="hidden" value="ECG" name="investigationName" />
-								<input type="hidden" value="pending" name="result" />
-								<input type="submit"
-									value="Add investigation DEMO" class="add-button" />
-					</form>
+					<div class="d-flex justify-content-end">	
+						<form method="POST" action="AddTreatmentDetails_InvestigationsServlet">
+									<input type="hidden" value="<%=TreatmentDetailsID%>" name="treatmentDetailsID" />
+									<input type="hidden" value="ECG" name="investigationName" />
+									<input type="hidden" value="pending" name="result" />
+									<input type="submit"
+										value="Add investigation DEMO" class="add-button" />
+						</form>
+						<form method="POST" action="DisplayAllTreatmentDetailsServlet">
+							<input type="hidden" value ="<%=TreatmentDetailsID%>" name="treatmentDetailsID"> 
+							<input type="submit"
+										value="Display All Treatment details" class="add-button" />
+						</form>
+					
+					</div>
 					
 					
-					
-					<form method="GET" action="AddTreatmentDetails_InvestigationsServlet">
+					<form method="GET" action="DisplayAllTreatmentDetailsServlet">
 						<input type="hidden" value ="<%=TreatmentDetailsID%>" name="treatmentDetailsID"> 
 						<input type="submit"
-									value="Done" class="add-button" />
+									value="Done!" class="add-button" />
 					
 					</form>
 					

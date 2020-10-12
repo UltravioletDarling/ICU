@@ -185,7 +185,13 @@
                                     <div class="card-header py-3">
                                        
                                         <p class="text-primary m-0 font-weight-bold">Medicine</p>
-                                        
+                                        <div class="d-flex justify-content-end">	
+												<form method="GET" action="AddTreatmentDetails_MedicineServlet">
+													<input type="hidden" value ="<%=TreatmentDetailsID%>" name="treatmentDetailsID"> 
+													<input type="submit"
+																value="Add Support Systems" class="add-button" />
+												</form>
+											</div>	
                                     </div>
                                     <div class="card-body">
                                        
@@ -232,7 +238,13 @@
 									<div class="card-header py-3">
 												
 											<p class="text-primary m-0 font-weight-bold">Support Systems</p>
-													
+											<div class="d-flex justify-content-end">	
+												<form method="GET" action="AddTreatmentDetails_SupportSystemsServlet">
+													<input type="hidden" value ="<%=TreatmentDetailsID%>" name="treatmentDetailsID"> 
+													<input type="submit"
+																value="Add Support Systems" class="add-button" />
+												</form>
+											</div>		
 									</div>
 											
 									<div class="card-body">
@@ -282,7 +294,13 @@
 									<div class="card-header py-3">
 												
 											<p class="text-primary m-0 font-weight-bold">Investigations</p>
-													
+											<div class="d-flex justify-content-end">	
+												<form method="GET" action="AddTreatmentDetails_InvestigationsServlet">
+													<input type="hidden" value ="<%=TreatmentDetailsID%>" name="treatmentDetailsID"> 
+													<input type="submit"
+																value="Add Support Systems" class="add-button" />
+												</form>
+											</div>			
 									</div>
 												
 									<div class="card-body">
@@ -310,7 +328,7 @@
 									 				</form>
 												</td>
 												<td>  
-													<form method="POST" action="">
+													<form method="POST" action="DeleteTreatmentDetails_InvestigationsServlet">
 														<input type="hidden" name="treatmentDetailsID" value="<%=treatmentDetails.getTreatmentDetailsID()%>"/>
 														<input type="hidden" name="treatmentDetailsID_Investigations" value="<%=treatmentDetails_investigations.getTreatmentDetails_investigationsID() %>"/>
 														<input type="submit" value= "Delete" class="select-button" /> 
@@ -331,7 +349,7 @@
 				</div>								
 			</div>									
 			<div class="d-flex justify-content-center">
-				<form method="POST" action="">
+				<form method="POST" action="DeleteTreatmentDetails_ALLByIDServelet">
 					<input type="hidden" name="treatmentDetailsID" value="<%=treatmentDetails.getTreatmentDetailsID()%>"/>
 					<input type="submit" value= "Delete This Whole Record" class="deleteButton" /> 									
 				</form>					 													

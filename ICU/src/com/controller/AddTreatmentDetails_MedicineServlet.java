@@ -65,7 +65,7 @@ public class AddTreatmentDetails_MedicineServlet extends HttpServlet {
 		
 		
 		request.setAttribute("TreatmentDetailsID", Integer.parseInt(request.getParameter("treatmentDetailsID")));
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addTreatmentDetails_SupportSystems.jsp");
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/addTreatmentDetails_Medicine.jsp");
 		dispatcher.forward(request, response);
 		
 		}catch(Exception e){

@@ -440,16 +440,64 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
 
 	@Override
 	public void DeleteTreatmentDetails_investigationsByID(String treatmentDetails_investigations) {
-		// TODO Auto-generated method stub
-		
+		Connection con = null;
+
+        Statement statement = null;
+    
+        
+        try {
+            con = DBConnectionRAZ.getConnection();
+            String sql = "delete from treatmentdetails_investigations where idtreatmentdetails_investigations = "
+            + treatmentDetails_investigations ;
+            
+           
+            
+	        statement = con.createStatement();
+            statement.executeUpdate(sql);
+            con.close();
+            statement.close();
+           
+            
+        }
+        catch(SQLException e)
+        {
+        	
+           e.printStackTrace();
+        }  
 	}
 
 
 
 	@Override
 	public void DeleteTreatmentDetails_allByID(String treatmentdetailsID) {
-		// TODO Auto-generated method stub
-		
+		Connection con = null;
+
+        Statement statement = null;
+    
+        
+        try {
+            con = DBConnectionRAZ.getConnection();
+            String sql1 = "delete from treatmentdetails_investigations where treatmentDetailsID = " + treatmentdetailsID ;
+            String sql2 = "delete from treatmentdetails_supportsystems where treatmentDetailsID = " + treatmentdetailsID ;
+            String sql3 = "delete from treatmentdetails_medicine where treatmentDetailsID = " + treatmentdetailsID ;
+            String sql4 = "delete from treatmentdetails where treatmentDetailsID = " + treatmentdetailsID ;
+            
+	        statement = con.createStatement();
+            statement.executeUpdate(sql1);
+            statement.executeUpdate(sql2);
+            statement.executeUpdate(sql3);
+            statement.executeUpdate(sql4);
+            
+            con.close();
+            statement.close();
+           
+            
+        }
+        catch(SQLException e)
+        {
+        	
+           e.printStackTrace();
+        }  
 	}
 	
 }
