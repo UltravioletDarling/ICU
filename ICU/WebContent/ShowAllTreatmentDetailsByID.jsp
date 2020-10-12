@@ -105,13 +105,13 @@
                                     <p id="name" class="text-left font-weight-bold"><%=TreatmentDetailsID%></p>
                                     <hr>
                                     <p class="text-left small">Patient ID</p>
-                                    <p id="age-gender" class="text-left font-weight-bold"><%=treatmentDetails.getPatientID() %></p>
+                                    <p id="age-gender" class="text-left font-weight-bold"><%=treatmentDetails.getPatientID()%></p>
                                     <hr>
                                     <p class="text-left small">Patient Name</p>
                                     <p id="diagnosis" class="text-left font-weight-bold">Name of Patient</p>
                                     <hr>
                                     <p class="text-left small">Id of Attending Doctor</p>
-                                    <p id="diagnosis" class="text-left font-weight-bold"><%=treatmentDetails.getDoctorID() %></p>
+                                    <p id="diagnosis" class="text-left font-weight-bold"><%=treatmentDetails.getDoctorID()%></p>
                           
 
 
@@ -209,12 +209,14 @@
 												<td>  
 													<form method="POST" action="">
 														<input type="hidden" name="treatmentDetailsID" value="<%=treatmentDetails.getTreatmentDetailsID()%>"/>
+														<input type="hidden" name="treatmentDetailsID_Medicine" value="<%=treatmentDetails_medicine.getTreatmentDetails_medicineID() %>"/>
 														<input type="submit" value= "Update " class="select-button" /> 
 									 				</form>
 												</td>
 												<td>  
-													<form method="POST" action="">
+													<form method="POST" action="DeleteTreatmentDetails_MedicineServlet">
 														<input type="hidden" name="treatmentDetailsID" value="<%=treatmentDetails.getTreatmentDetailsID()%>"/>
+														<input type="hidden" name="treatmentDetailsID_Medicine" value="<%=treatmentDetails_medicine.getTreatmentDetails_medicineID() %>"/>
 														<input type="submit" value= "Delete" class="select-button" /> 
 									 				</form>
 												</td>
@@ -255,12 +257,14 @@
 												<td>  
 													<form method="POST" action="">
 														<input type="hidden" name="treatmentDetailsID" value="<%=treatmentDetails.getTreatmentDetailsID()%>"/>
+														<input type="hidden" name="treatmentDetailsID_SupportSystems" value="<%=treatmentDetails_medicine.getTreatmentDetails_supportSystemsID() %>"/>
 														<input type="submit" value= "Update " class="select-button" /> 
 									 				</form>
 												</td>
 												<td>  
-													<form method="POST" action="">
+													<form method="POST" action="DeleteTreatmentDetails_SupportSystemsServlet">
 														<input type="hidden" name="treatmentDetailsID" value="<%=treatmentDetails.getTreatmentDetailsID()%>"/>
+														<input type="hidden" name="treatmentDetailsID_SupportSystems" value="<%=treatmentDetails_medicine.getTreatmentDetails_supportSystemsID() %>"/>
 														<input type="submit" value= "Delete" class="select-button" /> 
 									 				</form>
 												</td>
@@ -301,12 +305,14 @@
 												<td>  
 													<form method="POST" action="">
 														<input type="hidden" name="treatmentDetailsID" value="<%=treatmentDetails.getTreatmentDetailsID()%>"/>
+														<input type="hidden" name="treatmentDetailsID_Investigations" value="<%=treatmentDetails_investigations.getTreatmentDetails_investigationsID() %>"/>
 														<input type="submit" value= "Update " class="select-button" /> 
 									 				</form>
 												</td>
 												<td>  
 													<form method="POST" action="">
 														<input type="hidden" name="treatmentDetailsID" value="<%=treatmentDetails.getTreatmentDetailsID()%>"/>
+														<input type="hidden" name="treatmentDetailsID_Investigations" value="<%=treatmentDetails_investigations.getTreatmentDetails_investigationsID() %>"/>
 														<input type="submit" value= "Delete" class="select-button" /> 
 									 				</form>
 												</td>
