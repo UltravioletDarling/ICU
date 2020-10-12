@@ -5,6 +5,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 
@@ -77,11 +78,17 @@
 
 					</div>
 				</nav>
+				
+				
 	
 <div class="limiter">
 <div class="container-table100">
 <div class="wrap-table100">
 				<div class="table100">
+				
+				
+				
+			
 					
 <table>
 			 
@@ -115,8 +122,8 @@
 					<td class="column4"> <%=inventoryitem.getType() %></td>
 					<td class="column3"> <%=inventoryitem.getMaintenance() %></td>
 					<td class="column1"> 
-						<form method="POST" action="DisplayInventorybyid.jsp">
-						<input type="hidden" name="itemID" value="<%=inventoryitem.getItemid()%>"/>
+						<form method="POST" action="Displayinventorybyidservlet">
+						<input type="hidden" name="itemidentifier" value="<%=inventoryitem.getItemid()%>"/>
 						<input type="submit" value= "Select" class="select-button" /> 
 					   </form>
 					</td>
@@ -126,6 +133,7 @@
 				    }
 				      %>    
 				      <!-- test -->
+	
 				
 </table>
 </div>

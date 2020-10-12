@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+	<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 
@@ -88,7 +89,7 @@
 				</nav>
 				
 				 <div class="container-fluid">
-                <h3 class="text-dark mb-1" style="margin: 48px;">Inventory Manager</h3>
+                <h3 class="text-dark mb-1" style="margin: 48px;">Viewing Item  <%= itemid %></h3>
             </div>
             <form action="Updateinventoryservlet" method="post">
             
@@ -129,17 +130,23 @@
 		     <tr>
 			<td>Next Maintenance Date</td>
 			<td><input type="date" name="maintenance" value="<%= maintenance %>"></td>
-		    </tr>
+		    <td> 
+		     </tr>
+		    
 		    
 	</table>
-	<br>
+	</br>
 	<input type="submit" name="submit" value="Update Record">
-            
-            
+	  
             </form>
-
-
-
+            <br>
+            
+            <form method="POST" action="Deleteinventoryservlet">
+			<input type="submit" value= "Delete Record" class="select-button" /> 
+	</form>
+	
+	
+	
 		        
 			</div>
 			<footer class="bg-white sticky-footer">
