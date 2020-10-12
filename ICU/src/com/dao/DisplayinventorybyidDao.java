@@ -22,6 +22,8 @@ public ArrayList<inventoryitem> getdetailsbyid(String id) {
 		
 		ArrayList<inventoryitem> inventorylistbyid = new ArrayList<>();
 		
+		//test
+		
 		try {
 			
 			con = DBConnection.createConnection();
