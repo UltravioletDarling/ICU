@@ -43,6 +43,17 @@
 </servlet-mapping>
 
 
+<servlet>
+      <servlet-name>Displayinventorybyidservlet</servlet-name>
+      <servlet-class>com.controller.Displayinventorybyidservlet</servlet-class> 
+ </servlet>
+ 
+<servlet-mapping>
+<servlet-name>Displayinventorybyidservlet</servlet-name>
+<url-pattern>/Displayinventorybyidservlet</url-pattern>
+</servlet-mapping>
+
+
 
 <servlet>
       <servlet-name>Updateinventoryservlet</servlet-name>

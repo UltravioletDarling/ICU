@@ -17,41 +17,23 @@ public class DisplayinventorybyidDao {
 	private static Statement stmt = null;
 	private static ResultSet rs = null;
 	
-public static boolean validate(String itemid) {
-		
-		try {
-			con = DBConnection.createConnection();
-			stmt = con.createStatement();
-			String sql = "select * from inventory where ItemID='"+itemid+"'";
-			rs = stmt.executeQuery(sql);
-			
-			if (rs.next()) {
-				isSuccess = true;
-			} else {
-				isSuccess = false;
-			}
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		return isSuccess;
-	}
 	
-	public static List<inventoryitem> getdetailsbyid(String itemid) {
+public ArrayList<inventoryitem> getdetailsbyid(String id) {
 		
-		ArrayList<inventoryitem> inventorylist = new ArrayList<>();
+		ArrayList<inventoryitem> inventorylistbyid = new ArrayList<>();
+		
+		//test
 		
 		try {
 			
 			con = DBConnection.createConnection();
 			stmt = con.createStatement();
-			String sql = "select * from inventory where ItemID='"+itemid+"'";
+			String sql = "select * from inventory where ItemID='"+id+"'";
 			rs = stmt.executeQuery(sql);
 			
 			while (rs.next()) {
 				
-				String itemid1 = rs.getString(1);
+				String itemid = rs.getString(1);
 	        	String adminid = rs.getString(2);
 	        	String name = rs.getString(3);
 	        	String stock = rs.getString(4);
@@ -62,26 +44,26 @@ public static boolean validate(String itemid) {
 	        	String maintenance = rs.getString(9);
 				
 			
-	    		inventoryitem inventoryitem = new inventoryitem(itemid, adminid, name, stock, aquired, expiry, udosage, type, maintenance);
-	        	inventorylist.add(inventoryitem);
+	    		inventoryitem inventoryitem = new inventoryitem(id, adminid, name, stock, aquired, expiry, udosage, type, maintenance);
+	    		inventorylistbyid.add(inventoryitem);
 			}
 			
 		} catch (Exception e) {
 			
 		}
 		
-		return inventorylist;	
+		return inventorylistbyid;	
 	}
 	
 	
 //Delete method	
 	
-public static boolean deleteitem(String itemid) {
+public static boolean deleteitem(String id) {
 		
 		try {
 			con = DBConnection.createConnection();
 		    stmt = con.createStatement();
-		    String sql = "delete from inventory where ItemID='"+itemid+"'";
+		    String sql = "delete from inventory where ItemID='"+id+"'";
 		    int rs = stmt.executeUpdate(sql);
 		     
 		    if(rs>0) {
