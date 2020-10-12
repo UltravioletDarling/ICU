@@ -10,6 +10,7 @@ import com.bean.TreatmentDetails;
 import com.bean.TreatmentDetails_investigations;
 import com.bean.TreatmentDetails_medicine;
 import com.bean.TreatmentDetails_supportSystems;
+import com.util.DBConnection;
 import com.util.DBConnectionRAZ;
 
 public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
@@ -369,6 +370,63 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
 		
 		}
 		return treatmentDetails_investigationsList;
+	}
+
+
+
+	@Override
+	public void DeleteTreatmentDetails_medicineByID(String treatmentDetails_medicine) {
+		
+		Connection con = null;
+
+        Statement statement = null;
+    
+        
+        try {
+            con = DBConnectionRAZ.getConnection();
+            String sql = "delete from treatmentdetails_medicine where idtreatmentdetails_medicine = "
+            + treatmentDetails_medicine ;
+            
+           
+            
+	        statement = con.createStatement();
+            statement.executeUpdate(sql);
+            con.close();
+            statement.close();
+           
+            
+        }
+        catch(SQLException e)
+        {
+        	
+           e.printStackTrace();
+        }       
+        
+		
+	}
+
+
+
+	@Override
+	public void DeleteTreatmentDetails_supportSystemsByID(String treatmentDetails_supportSystems) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void DeleteTreatmentDetails_investigationsByID(String treatmentDetails_investigations) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void DeleteTreatmentDetails_allByID(String treatmentdetailsID) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }

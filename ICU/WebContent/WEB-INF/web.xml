@@ -97,7 +97,14 @@
 	 	<servlet-name>DisplayAllTreatmentDetailsServlet</servlet-name>
 		<url-pattern>/DisplayAllTreatmentDetailsServlet</url-pattern>
 	</servlet-mapping>
-	
+	<servlet>        
+	    <servlet-name>DeleteTreatmentDetails_MedicineServlet</servlet-name>
+        <servlet-class>com.controller.DeleteTreatmentDetails_MedicineServlet</servlet-class>
+ 	</servlet>
+	<servlet-mapping>
+	 	<servlet-name>DeleteTreatmentDetails_MedicineServlet</servlet-name>
+		<url-pattern>/DeleteTreatmentDetails_MedicineServlet</url-pattern>
+	</servlet-mapping>
  
  <servlet>
         <servlet-name>PatientHandoff_Servlet</servlet-name>
