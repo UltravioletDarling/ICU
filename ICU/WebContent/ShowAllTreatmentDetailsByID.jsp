@@ -269,8 +269,8 @@
 												<td> <%=treatmentDetails_medicine.getSystemName()%> </td>
 												<td> <%=treatmentDetails_medicine.getAmount() %> </td>
 												<td>  
-													<form method="POST" action="">
-														<input type="hidden" name="treatmentDetailsID" value="<%=treatmentDetails.getTreatmentDetailsID()%>"/>
+													<form method="POST" action="DisplayTreatmentDetails_SupportSystemsByID">
+														
 														<input type="hidden" name="treatmentDetailsID_SupportSystems" value="<%=treatmentDetails_medicine.getTreatmentDetails_supportSystemsID() %>"/>
 														<input type="submit" value= "Update " class="select-button" /> 
 									 				</form>
@@ -323,8 +323,8 @@
 												<td> <%=treatmentDetails_investigations.getInvestigationname()%> </td>
 												<td> <%=treatmentDetails_investigations.getResult()%> </td>
 												<td>  
-													<form method="POST" action="">
-														<input type="hidden" name="treatmentDetailsID" value="<%=treatmentDetails.getTreatmentDetailsID()%>"/>
+													<form method="POST" action="DisplayTreatmentDetails_InvestigationsByID">
+														
 														<input type="hidden" name="treatmentDetailsID_Investigations" value="<%=treatmentDetails_investigations.getTreatmentDetails_investigationsID() %>"/>
 														<input type="submit" value= "Update " class="select-button" /> 
 									 				</form>

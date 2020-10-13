@@ -41,36 +41,36 @@ public class UpdateTreatmentDetails_MedicineServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		try {
-			response.setContentType("text/html");
-
-			TreatmentDetails_medicine treatmentDetails_medicine = new TreatmentDetails_medicine();
-			
-			treatmentDetails_medicine.setTreatmentDetails_medicineID(Integer.parseInt(request.getParameter("treatmentDetails_medicineID")));
-			
-			treatmentDetails_medicine.setItemId(request.getParameter("itemID"));
-			treatmentDetails_medicine.setDosage(request.getParameter("dosage"));
-			
-
-			ITreatmentDetailsDAO iTreatmentDetails= new TreatmentDetailsDAO();
-			TreatmentDetails_medicine treatmentDetails_medicineOut = iTreatmentDetails.UpdateTreatmentDetails_medicine(treatmentDetails_medicine);
+			try {
+				response.setContentType("text/html");
+	
+				TreatmentDetails_medicine treatmentDetails_medicine = new TreatmentDetails_medicine();
 				
-			request.setAttribute("TreatmentDetails_medicine", (TreatmentDetails_medicine)treatmentDetails_medicineOut);
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/updateTreatmentDetails_medicineByID.jsp");
-			dispatcher.forward(request, response);
-	}
-		catch(NumberFormatException e) 
-		{
-			e.printStackTrace();
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Fail.jsp");
-			dispatcher.forward(request, response);
+				treatmentDetails_medicine.setTreatmentDetails_medicineID(Integer.parseInt(request.getParameter("treatmentDetails_medicineID")));
+				
+				treatmentDetails_medicine.setItemId(request.getParameter("itemID"));
+				treatmentDetails_medicine.setDosage(request.getParameter("dosage"));
+				
+	
+				ITreatmentDetailsDAO iTreatmentDetails= new TreatmentDetailsDAO();
+				TreatmentDetails_medicine treatmentDetails_medicineOut = iTreatmentDetails.UpdateTreatmentDetails_medicine(treatmentDetails_medicine);
+					
+				request.setAttribute("TreatmentDetails_medicine", (TreatmentDetails_medicine)treatmentDetails_medicineOut);
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/updateTreatmentDetails_medicineByID.jsp");
+				dispatcher.forward(request, response);
 		}
-		
-		catch(Exception ex) {
-			ex.printStackTrace();
-			RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Fail.jsp");
-			dispatcher.forward(request, response);
-		}
+			catch(NumberFormatException e) 
+			{
+				e.printStackTrace();
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Fail.jsp");
+				dispatcher.forward(request, response);
+			}
+			
+			catch(Exception ex) {
+				ex.printStackTrace();
+				RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/Fail.jsp");
+				dispatcher.forward(request, response);
+			}
 
-}
+	}
 }

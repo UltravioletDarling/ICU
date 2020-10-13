@@ -563,8 +563,28 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
 	@Override
 	public TreatmentDetails_supportSystems UpdateTreatmentDetails_supportSystems(
 			TreatmentDetails_supportSystems treatmentDetails_supportSystems) {
-		// TODO Auto-generated method stub
-		return null;
+			Connection con = null;
+			Statement statement = null;
+	
+	    
+	        
+	        try {
+	            con = DBConnectionRAZ.getConnection();
+	            String sql = "update treatmentdetails_supportsystems set sytemname = '" + treatmentDetails_supportSystems.getSystemName()+"', amount = '"+ treatmentDetails_supportSystems.getAmount()+"' where idtreatmentdetails_supportsystems ="+ treatmentDetails_supportSystems.getTreatmentDetails_supportSystemsID(); 
+	            
+	
+	            System.out.println(sql);
+	            statement = con.createStatement(); 
+	            statement.executeUpdate(sql);
+	         
+	           
+	        }
+	        catch(SQLException e)
+	        {
+	        	
+	           e.printStackTrace();
+	        }       
+	        return  getTreatmentDetails_supportSystemsSingle(Integer.toString(treatmentDetails_supportSystems.getTreatmentDetails_supportSystemsID()));
 	}
 
 
@@ -572,8 +592,28 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
 	@Override
 	public TreatmentDetails_investigations UpdateTreatmentDetails_investigations(
 			TreatmentDetails_investigations treatmentDetails_investigations) {
-		// TODO Auto-generated method stub
-		return null;
+			Connection con = null;
+			Statement statement = null;
+	
+	    
+	        
+	        try {
+	            con = DBConnectionRAZ.getConnection();
+	            String sql = "update treatmentdetails_investigations set investigationname = '" + treatmentDetails_investigations.getInvestigationname()+"', result = '"+ treatmentDetails_investigations.getResult()+"' where idtreatmentdetails_investigations ="+ treatmentDetails_investigations.getTreatmentDetails_investigationsID(); 
+	            
+	
+	            System.out.println(sql);
+	            statement = con.createStatement(); 
+	            statement.executeUpdate(sql);
+	         
+	           
+	        }
+	        catch(SQLException e)
+	        {
+	        	
+	           e.printStackTrace();
+	        }       
+	        return  getTreatmentDetails_investigationsSingle(Integer.toString(treatmentDetails_investigations.getTreatmentDetails_investigationsID()));
 	}
 
 
@@ -623,8 +663,41 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
 	@Override
 	public TreatmentDetails_supportSystems getTreatmentDetails_supportSystemsSingle(
 			String treatmentDetails_supportSystemsID) {
-		// TODO Auto-generated method stub
-		return null;
+			String sql;
+			Connection connection = null;		
+			Statement statement = null;
+			TreatmentDetails_supportSystems treatmentDetails_supportSystems =null;
+			//execution		
+			try {
+			//establish connection	
+			connection = DBConnectionRAZ.getConnection();
+			//statement 
+			statement = connection.createStatement();
+			
+			sql = "select * from treatmentdetails_supportsystems where idtreatmentdetails_supportsystems = " + treatmentDetails_supportSystemsID ;
+			System.out.println(sql);
+			//execute query
+			ResultSet resultSet = statement.executeQuery(sql);
+			
+			//sort query result in to array list
+			while(resultSet.next()) {
+				treatmentDetails_supportSystems = new TreatmentDetails_supportSystems();
+				treatmentDetails_supportSystems.setTreatmentDetails_supportSystemsID(resultSet.getInt(1));
+				treatmentDetails_supportSystems.setTreatmentDetailsID(resultSet.getInt(2));
+				treatmentDetails_supportSystems.setSystemName(resultSet.getString(3));
+				treatmentDetails_supportSystems.setAmount(resultSet.getString(4));
+			System.out.println(treatmentDetails_supportSystems.getTreatmentDetails_supportSystemsID());
+			}
+			//close statement and connection
+			if (statement != null) statement.close();
+			if (connection != null) connection.close();
+			
+	
+		}catch(Exception e){
+			
+		}
+		return treatmentDetails_supportSystems;
+		
 	}
 
 
@@ -632,8 +705,40 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
 	@Override
 	public TreatmentDetails_investigations getTreatmentDetails_investigationsSingle(
 			String treatmentDetails_investigationsID) {
-		// TODO Auto-generated method stub
-		return null;
+			String sql;
+			Connection connection = null;		
+			Statement statement = null;
+			TreatmentDetails_investigations treatmentDetails_investigations =null;
+			//execution		
+			try {
+			//establish connection	
+			connection = DBConnectionRAZ.getConnection();
+			//statement 
+			statement = connection.createStatement();
+			
+			sql = "select * from treatmentdetails_investigations where idtreatmentdetails_investigations = " + treatmentDetails_investigationsID ;
+			System.out.println(sql);
+			//execute query
+			ResultSet resultSet = statement.executeQuery(sql);
+			
+			//sort query result in to array list
+			while(resultSet.next()) {
+				treatmentDetails_investigations = new TreatmentDetails_investigations();
+				treatmentDetails_investigations.setTreatmentDetails_investigationsID(resultSet.getInt(1));
+				treatmentDetails_investigations.setTreatmentDetailsID(resultSet.getInt(2));
+				treatmentDetails_investigations.setInvestigationname(resultSet.getString(3));
+				treatmentDetails_investigations.setResult(resultSet.getString(4));
+			System.out.println(treatmentDetails_investigations.getTreatmentDetails_investigationsID());
+			}
+			//close statement and connection
+			if (statement != null) statement.close();
+			if (connection != null) connection.close();
+			
+	
+		}catch(Exception e){
+			
+		}
+		return treatmentDetails_investigations;
 	}
 
 
