@@ -375,7 +375,7 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
 
 
 	@Override
-	public void DeleteTreatmentDetails_medicineByID(String treatmentDetails_medicine) {
+	public void DeleteTreatmentDetails_medicineByID(String treatmentDetails_medicineID) {
 		
 		Connection con = null;
 
@@ -385,7 +385,7 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
         try {
             con = DBConnectionRAZ.getConnection();
             String sql = "delete from treatmentdetails_medicine where idtreatmentdetails_medicine = "
-            + treatmentDetails_medicine ;
+            + treatmentDetails_medicineID ;
             
            
             
@@ -408,7 +408,7 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
 
 
 	@Override
-	public void DeleteTreatmentDetails_supportSystemsByID(String treatmentDetails_supportSystems) {
+	public void DeleteTreatmentDetails_supportSystemsByID(String treatmentDetails_supportSystemsID) {
 		Connection con = null;
 
         Statement statement = null;
@@ -417,7 +417,7 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
         try {
             con = DBConnectionRAZ.getConnection();
             String sql = "delete from treatmentdetails_supportsystems where idtreatmentdetails_supportsystems = "
-            + treatmentDetails_supportSystems ;
+            + treatmentDetails_supportSystemsID ;
             
            
             
@@ -439,7 +439,7 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
 
 
 	@Override
-	public void DeleteTreatmentDetails_investigationsByID(String treatmentDetails_investigations) {
+	public void DeleteTreatmentDetails_investigationsByID(String treatmentDetails_investigationsID) {
 		Connection con = null;
 
         Statement statement = null;
@@ -448,7 +448,7 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
         try {
             con = DBConnectionRAZ.getConnection();
             String sql = "delete from treatmentdetails_investigations where idtreatmentdetails_investigations = "
-            + treatmentDetails_investigations ;
+            + treatmentDetails_investigationsID ;
             
            
             
@@ -499,7 +499,92 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
            e.printStackTrace();
         }  
 	}
-	
+
+
+
+	@Override
+	public TreatmentDetails UpdateTreatmentDetails(TreatmentDetails TreatmentDetails) {
+		
+		Connection con = null;
+		Statement statement = null;
+//        PreparedStatement preparedStatement = null;
+    
+        
+        try {
+            con = DBConnectionRAZ.getConnection();
+            String sql = "update treatmentdetails set patientID = '" + TreatmentDetails.getPatientID()+ "', doctorID = '" + TreatmentDetails.getDoctorID()+"', bP = "+ TreatmentDetails.getbP()+ ", hR = "+ TreatmentDetails.gethR()+", sPO2= "+TreatmentDetails.getsPO2() + 
+            ", fintake ="+ TreatmentDetails.getFintake()+", foutput= "+ TreatmentDetails.getFoutput() +" where treatmentDetailsID ="+ TreatmentDetails.getTreatmentDetailsID(); 
+            
+
+            System.out.println(sql);
+            statement = con.createStatement(); 
+            statement.executeUpdate(sql);
+          
+           
+
+
+//            con = DBConnectionRAZ.getConnection();
+//            String sql = "update treatmentdetails set patientID = ?, doctorID = '?', bP =?, hR=?, sPO2=?, fintake=?, foutput=? where  treatmentDetailsID =" + TreatmentDetails.getTreatmentDetailsID() ;
+//            
+//            preparedStatement = con.prepareStatement(sql);
+//        
+//            preparedStatement.setString(1, TreatmentDetails.getPatientID());
+//            preparedStatement.setString(2, TreatmentDetails.getDoctorID());
+//            preparedStatement.setInt(3, TreatmentDetails.getbP());
+//            preparedStatement.setInt(4, TreatmentDetails.gethR());
+//            preparedStatement.setDouble(5, TreatmentDetails.getsPO2());
+//            preparedStatement.setDouble(6, TreatmentDetails.getFintake());
+//            preparedStatement.setDouble(7,TreatmentDetails.getFoutput());
+//      
+//            
+//            preparedStatement.executeUpdate();
+
+           
+           
+           
+        }
+        catch(SQLException e)
+        {
+        	
+           e.printStackTrace();
+        }       
+        return  getTreatmentDetailsByID(Integer.toString(TreatmentDetails.getTreatmentDetailsID()));
+	}
+
+
+
+	@Override
+	public TreatmentDetails_medicine UpdateTreatmentDetails_medicine(
+			TreatmentDetails_medicine treatmentDetails_medicine) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public TreatmentDetails_supportSystems UpdateTreatmentDetails_supportSystems(
+			TreatmentDetails_supportSystems treatmentDetails_supportSystems) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public TreatmentDetails_investigations UpdateTreatmentDetails_investigations(
+			TreatmentDetails_investigations treatmentDetails_investigations) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+
+
+
+
+
 }
 
 

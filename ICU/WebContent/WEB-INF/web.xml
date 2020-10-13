@@ -140,8 +140,22 @@
 	 	<servlet-name>DeleteTreatmentDetails_ALLByIDServelet</servlet-name>
 		<url-pattern>/DeleteTreatmentDetails_ALLByIDServelet</url-pattern>
 	</servlet-mapping>
- 
- 
+ 	<servlet>        
+	    <servlet-name>DisplayTreatmentDetailsByIDServlet</servlet-name>
+        <servlet-class>com.controller.DisplayTreatmentDetailsByIDServlet</servlet-class>
+ 	</servlet>
+	<servlet-mapping>
+	 	<servlet-name>DisplayTreatmentDetailsByIDServlet</servlet-name>
+		<url-pattern>/DisplayTreatmentDetailsByIDServlet</url-pattern>
+	</servlet-mapping>
+ 	<servlet>        
+	    <servlet-name>UpdateTreatmentDetailsServlet</servlet-name>
+        <servlet-class>com.controller.UpdateTreatmentDetailsServlet</servlet-class>
+ 	</servlet>
+	<servlet-mapping>
+	 	<servlet-name>UpdateTreatmentDetailsServlet</servlet-name>
+		<url-pattern>/UpdateTreatmentDetailsServlet</url-pattern>
+	</servlet-mapping>
  
  
  

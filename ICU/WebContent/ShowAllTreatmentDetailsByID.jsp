@@ -140,8 +140,8 @@
                                     <p class="text-left small">Fluid Out-put</p>
                                     <p id="diagnosis" class="text-left font-weight-bold"><%=treatmentDetails.getFoutput() %></p>
                                     <hr>
-                                    <form method="POST" action="">
-										<input type="hidden" name="treatmentDetailsID" value="<%=treatmentDetails.getTreatmentDetailsID()%>"/>
+                                    <form method="POST" action="DisplayTreatmentDetailsByIDServlet">
+										<input type="hidden" name="treatmentDetailsID" value="<%=TreatmentDetailsID%>"/>
 										<input type="submit" value= "Update general and Vital details" class="select-button" /> 
 									 </form>
                                 </div>

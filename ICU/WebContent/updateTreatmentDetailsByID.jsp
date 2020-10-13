@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="com.bean.TreatmentDetails"%>
+<%@page import="com.dao.ITreatmentDetailsDAO"%>
+<%@page import="com.dao.TreatmentDetailsDAO"%>
 <!DOCTYPE html>
 <html>
 
@@ -7,11 +10,15 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Add Treatment Details of Patients</title>
+<title>Update Treatment Details of Patients</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
 <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+<%
+	TreatmentDetails tretamentDetails = (TreatmentDetails)request.getAttribute("TreatmentDetails");
+
+%>
 </head>
 
 <body id="page-top">
@@ -73,51 +80,55 @@
 					</div>
 				</nav>
 				<div class="container-fluid">
-					<h3 class="text-dark mb-1">Insert the Patient's Treatment
-						Details</h3>
-						<p>PLease fill out all fields before adding</p>
-					<form method="POST" action="AddTreatmentDetailsServlet">
+					<h3 class="text-dark mb-1">Update the Patient's Treatment Details</h3>
+						<p></p>
+					<form method="POST" action="UpdateTreatmentDetailsServlet">
 						<table class="table">
+							<tr>
+								<td>Treatment Details ID</td>
+								<td><input type="text" value="<%=tretamentDetails.getTreatmentDetailsID() %>" required="required" name="treatmentDetailsID" readonly/></td>
+								<td>Note: IDs must be less than 45 characters long with no special characters</td>
+							</tr>
 
 							<tr>
 								<td>Patient ID</td>
-								<td><input type="text" required="required" name="patientID" pattern="[A-Za-z0-9]{1,45}"/></td>
+								<td><input type="text" value="<%=tretamentDetails.getPatientID() %>" required="required" name="patientID" pattern="[A-Za-z0-9]{1,45}"/></td>
 								<td>Note: IDs must be less than 45 characters long with no special characters</td>
 							</tr>
 							<tr>
 								<td>Doctor ID</td>
-								<td><input type="text" required="required" name="doctorID" pattern="[A-Za-z0-9]{1,45}"/></td>
+								<td><input type="text" value="<%=tretamentDetails.getDoctorID() %>" required="required" name="doctorID" pattern="[A-Za-z0-9]{1,45}"/></td>
 	
 							</tr>
 							<tr>
 								<td>Blood Pressure</td>
-								<td><input type="text" required="required" name="bP" pattern="[0-9]{1,3}"/></td>
+								<td><input type="text" value="<%=tretamentDetails.getbP() %>" required="required" name="bP" pattern="[0-9]{1,3}"/></td>
 								<td>BPM</td>
 							</tr>
 							<tr>
 								<td>Heart Rate</td>
-								<td><input type="text" required="required" name="hR" pattern="[0-9]{1,3}"/></td>
+								<td><input type="text" value="<%=tretamentDetails.gethR() %>" required="required" name="hR" pattern="[0-9]{1,3}"/></td>
 								<td>mmHg</td>
 							</tr>
 							<tr>
 								<td>SPO2</td>
-								<td><input type="number" required="required" name="sPO2" min="1" max="100"/></td>
+								<td><input type="number" value="<%=tretamentDetails.getsPO2() %>" required="required" name="sPO2" min="1" max="100"/></td>
 								<td>%</td>
 							</tr>
 							<tr>
 								<td>Fluid In-take</td>
-								<td><input type="number" required="required" name="fintake" pattern="[0-9]{1,5}"/></td>
+								<td><input type="text" value="<%=tretamentDetails.getFintake() %>" required="required" name="fintake" pattern="[0-9]{1,5}"/></td>
 								<td>ml</td>
 							</tr>
 							<tr>
 								<td>Fluid Output</td>
-								<td><input type="number" required="required" name="foutput" pattern="[0-9]{1,5}"/></td>
+								<td><input type="text" value="<%=tretamentDetails.getFoutput() %>" required="required" name="foutput" pattern="[0-9]{1,5}"/></td>
 								<td>ml</td>
 							</tr>
 
 							<tr>
 								<td colspan="2"><input type="submit"
-									value="Add Treatment Details" class="add-button" /></td>
+									value="Update Treatment Details" class="add-button" /></td>
 							</tr>
 											
 							<tr>	
@@ -127,15 +138,16 @@
 						</table>
 					</form>
 					<div class="d-flex justify-content-end">	
-						<form method="POST" action="AddTreatmentDetailsServlet">
-									<input type="hidden" value="P123"  name="patientID" />
-									<input type="hidden" value="D123" name="doctorID" />
-									<input type="hidden" value="132" name="bP" />
-									<input type="hidden" value="110" name="hR" />
-									<input type="hidden" value="97" name="sPO2" />
-									<input type="hidden"  value="1600" name="fintake" />
-									<input type="hidden" value="900" name="foutput" /><input type="submit"
-										value="Add Treatment Details DEMO" class="add-button" />
+						<form method="POST" action="UpdateTreatmentDetailsServlet">
+						    		<input type="hidden" value="<%=tretamentDetails.getTreatmentDetailsID() %>" name="treatmentDetailsID" />
+									<input type="hidden" value="P1234"  name="patientID" />
+									<input type="hidden" value="D1234" name="doctorID" />
+									<input type="hidden" value="1324" name="bP" />
+									<input type="hidden" value="120" name="hR" />
+									<input type="hidden" value="99" name="sPO2" />
+									<input type="hidden"  value="1700" name="fintake" />
+									<input type="hidden" value="1000" name="foutput" /><input type="submit"
+										value="Update Treatment Details DEMO" class="add-button" />
 						</form>
 						
 					</div>	
