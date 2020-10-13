@@ -507,7 +507,7 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
 		
 		Connection con = null;
 		Statement statement = null;
-//        PreparedStatement preparedStatement = null;
+
     
         
         try {
@@ -519,28 +519,7 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
             System.out.println(sql);
             statement = con.createStatement(); 
             statement.executeUpdate(sql);
-          
-           
-
-
-//            con = DBConnectionRAZ.getConnection();
-//            String sql = "update treatmentdetails set patientID = ?, doctorID = '?', bP =?, hR=?, sPO2=?, fintake=?, foutput=? where  treatmentDetailsID =" + TreatmentDetails.getTreatmentDetailsID() ;
-//            
-//            preparedStatement = con.prepareStatement(sql);
-//        
-//            preparedStatement.setString(1, TreatmentDetails.getPatientID());
-//            preparedStatement.setString(2, TreatmentDetails.getDoctorID());
-//            preparedStatement.setInt(3, TreatmentDetails.getbP());
-//            preparedStatement.setInt(4, TreatmentDetails.gethR());
-//            preparedStatement.setDouble(5, TreatmentDetails.getsPO2());
-//            preparedStatement.setDouble(6, TreatmentDetails.getFintake());
-//            preparedStatement.setDouble(7,TreatmentDetails.getFoutput());
-//      
-//            
-//            preparedStatement.executeUpdate();
-
-           
-           
+         
            
         }
         catch(SQLException e)
@@ -554,10 +533,29 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
 
 
 	@Override
-	public TreatmentDetails_medicine UpdateTreatmentDetails_medicine(
-			TreatmentDetails_medicine treatmentDetails_medicine) {
-		// TODO Auto-generated method stub
-		return null;
+	public TreatmentDetails_medicine UpdateTreatmentDetails_medicine(TreatmentDetails_medicine treatmentDetails_medicine) {
+		Connection con = null;
+		Statement statement = null;
+
+    
+        
+        try {
+            con = DBConnectionRAZ.getConnection();
+            String sql = "update treatmentdetails_medicine set itemID = '" + treatmentDetails_medicine.getItemId()+"', dosage = '"+ treatmentDetails_medicine.getDosage()+"' where idtreatmentdetails_medicine ="+ treatmentDetails_medicine.getTreatmentDetails_medicineID(); 
+            
+
+            System.out.println(sql);
+            statement = con.createStatement(); 
+            statement.executeUpdate(sql);
+         
+           
+        }
+        catch(SQLException e)
+        {
+        	
+           e.printStackTrace();
+        }       
+        return  getTreatmentDetails_medicineSingle(Integer.toString(treatmentDetails_medicine.getTreatmentDetails_medicineID()));
 	}
 
 
@@ -574,6 +572,66 @@ public class TreatmentDetailsDAO implements ITreatmentDetailsDAO{
 	@Override
 	public TreatmentDetails_investigations UpdateTreatmentDetails_investigations(
 			TreatmentDetails_investigations treatmentDetails_investigations) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public TreatmentDetails_medicine getTreatmentDetails_medicineSingle(String treatmentDetails_medicineID) {
+		
+		String sql;
+		Connection connection = null;		
+		Statement statement = null;
+		TreatmentDetails_medicine treatmentDetails_medicine =null;
+		//execution		
+		try {
+		//establish connection	
+		connection = DBConnectionRAZ.getConnection();
+		//statement 
+		statement = connection.createStatement();
+		
+		sql = "select * from treatmentdetails_medicine where idtreatmentdetails_medicine = " + treatmentDetails_medicineID ;
+		System.out.println(sql);
+		//execute query
+		ResultSet resultSet = statement.executeQuery(sql);
+		
+		//sort query result in to array list
+		while(resultSet.next()) {
+		treatmentDetails_medicine = new TreatmentDetails_medicine();
+		treatmentDetails_medicine.setTreatmentDetails_medicineID(resultSet.getInt(1));
+		treatmentDetails_medicine.setTreatmentDetailsID(resultSet.getInt(2));
+		treatmentDetails_medicine.setItemId(resultSet.getString(3));
+		treatmentDetails_medicine.setDosage(resultSet.getString(4));
+		System.out.println(treatmentDetails_medicine.getTreatmentDetails_medicineID());
+		}
+		//close statement and connection
+		if (statement != null) statement.close();
+		if (connection != null) connection.close();
+		
+
+	}catch(Exception e){
+		
+	}
+	return treatmentDetails_medicine;
+		
+	}
+
+
+
+	@Override
+	public TreatmentDetails_supportSystems getTreatmentDetails_supportSystemsSingle(
+			String treatmentDetails_supportSystemsID) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+
+	@Override
+	public TreatmentDetails_investigations getTreatmentDetails_investigationsSingle(
+			String treatmentDetails_investigationsID) {
 		// TODO Auto-generated method stub
 		return null;
 	}

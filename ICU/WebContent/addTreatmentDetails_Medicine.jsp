@@ -101,7 +101,7 @@
 							</tr>
 							<tr>
 								<td>Dossage</td>
-								<td><input type="text" required="required" name="dosage"  pattern="[A-Za-z0-9]{1,200}"/></td>
+								<td><input type="text" required="required" name="dosage"  pattern="[A-Za-z0-9 ]{1,200}"/></td>
 	
 							</tr>
 							<tr>

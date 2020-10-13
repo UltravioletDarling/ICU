@@ -15,12 +15,17 @@ public interface ITreatmentDetailsDAO {
 	public void addTreatmentDetails_supportSystems(TreatmentDetails_supportSystems treatmentDetails_supportSystems) throws ClassNotFoundException;
 	public void addTreatmentDetails_investigations(TreatmentDetails_investigations treatmentDetails_investigations) throws ClassNotFoundException;
 	
-	//get details
+	//get details full tables
 	public ArrayList<TreatmentDetails> getTreatmentDetails();
-	public TreatmentDetails getTreatmentDetailsByID(String treatmentdetailsID);
 	public ArrayList<TreatmentDetails_medicine> getTreatmentDetails_medicineByID(String treatmentdetailsID);
 	public ArrayList<TreatmentDetails_supportSystems> getTreatmentDetails_supportSystemsByID(String treatmentdetailsID);
 	public ArrayList<TreatmentDetails_investigations> getTreatmentDetails_investigationsByID(String treatmentdetailsID);
+	
+	//get details single records
+	public TreatmentDetails getTreatmentDetailsByID(String treatmentdetailsID);
+	public TreatmentDetails_medicine getTreatmentDetails_medicineSingle(String treatmentDetails_medicineID);
+	public TreatmentDetails_supportSystems getTreatmentDetails_supportSystemsSingle(String treatmentDetails_supportSystemsID);
+	public TreatmentDetails_investigations getTreatmentDetails_investigationsSingle(String treatmentDetails_investigationsID);
 	
 	//delete details
 	public void DeleteTreatmentDetails_medicineByID(String treatmentDetails_medicineID);

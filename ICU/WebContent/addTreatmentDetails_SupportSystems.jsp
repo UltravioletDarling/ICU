@@ -96,12 +96,12 @@
 
 							<tr>
 								<td>Support System Name</td>
-								<td><input type="text" required="required" name="supportSystemName" pattern="[A-Za-z0-9]{1,45}"/></td>
+								<td><input type="text" required="required" name="supportSystemName" pattern="[A-Za-z0-9 ]{1,45}"/></td>
 								<td></td>
 							</tr>
 							<tr>
 								<td>Amount</td>
-								<td><input type="text" required="required" name="amount"  pattern="[A-Za-z0-9]{1,200}"/></td>
+								<td><input type="text" required="required" name="amount"  pattern="[A-Za-z0-9 ]{1,200}"/></td>
 								<td>(settings, amount of time etc.)</td>
 							</tr>
 							<tr>

@@ -87,7 +87,7 @@
 							<tr>
 								<td>Treatment Details ID</td>
 								<td><input type="text" value="<%=tretamentDetails.getTreatmentDetailsID() %>" required="required" name="treatmentDetailsID" readonly/></td>
-								<td>Note: IDs must be less than 45 characters long with no special characters</td>
+								<td></td>
 							</tr>
 
 							<tr>

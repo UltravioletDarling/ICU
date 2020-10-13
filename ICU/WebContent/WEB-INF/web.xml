@@ -156,8 +156,22 @@
 	 	<servlet-name>UpdateTreatmentDetailsServlet</servlet-name>
 		<url-pattern>/UpdateTreatmentDetailsServlet</url-pattern>
 	</servlet-mapping>
- 
- 
+ 	 	<servlet>        
+	    <servlet-name>DisplayTreatmentDetails_MedicineByID</servlet-name>
+        <servlet-class>com.controller.DisplayTreatmentDetails_MedicineByID</servlet-class>
+ 	</servlet>
+	<servlet-mapping>
+	 	<servlet-name>DisplayTreatmentDetails_MedicineByID</servlet-name>
+		<url-pattern>/DisplayTreatmentDetails_MedicineByID</url-pattern>
+	</servlet-mapping>
+ 	<servlet>        
+	    <servlet-name>UpdateTreatmentDetails_MedicineServlet</servlet-name>
+        <servlet-class>com.controller.UpdateTreatmentDetails_MedicineServlet</servlet-class>
+ 	</servlet>
+	<servlet-mapping>
+	 	<servlet-name>UpdateTreatmentDetails_MedicineServlet</servlet-name>
+		<url-pattern>/UpdateTreatmentDetails_MedicineServlet</url-pattern>
+	</servlet-mapping>
  
  
  

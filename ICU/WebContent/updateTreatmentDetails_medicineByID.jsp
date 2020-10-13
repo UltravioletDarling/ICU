@@ -1,9 +1,8 @@
-<%@page import="com.bean.TreatmentDetails_investigations"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="com.dao.ITreatmentDetailsDAO"%>
-<%@page import="com.dao.TreatmentDetailsDAO"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@page import="com.bean.TreatmentDetails_medicine"%>
+<%@page import="com.dao.ITreatmentDetailsDAO"%>
+<%@page import="com.dao.TreatmentDetailsDAO"%>
 <!DOCTYPE html>
 <html>
 
@@ -11,15 +10,18 @@
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-<title>Add Investigations</title>
+<title>Update Treatment Details of Patients - Medicine</title>
 <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i">
 <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css">
+<%
+TreatmentDetails_medicine treatmentDetails_medicine = (TreatmentDetails_medicine)request.getAttribute("TreatmentDetails_medicine");
+
+%>
 </head>
 
 <body id="page-top">
-
 	<div id="wrapper">
 		<nav
 			class="navbar navbar-dark align-items-start sidebar sidebar-dark accordion bg-gradient-primary p-0">
@@ -78,35 +80,35 @@
 					</div>
 				</nav>
 				<div class="container-fluid">
-					<h3 class="text-dark mb-1">Insert the Patient's Treatment
-						Details</h3>
-						<p>PLease fill out all fields before adding</p>
-						<% 
-							int TreatmentDetailsID = (int) request.getAttribute("TreatmentDetailsID");
-							
-
-						%>
-					<form method="POST" action="AddTreatmentDetails_InvestigationsServlet">
+					<h3 class="text-dark mb-1">Update the Patient's Treatment Details - Medicine</h3>
+						<p></p>
+					<form method="POST" action="UpdateTreatmentDetails_MedicineServlet">
 						<table class="table">
-						<tr>
+							<tr>
+								<td>Medicine ID</td>
+								<td><input type="text" value="<%=treatmentDetails_medicine.getTreatmentDetails_medicineID() %>"name="treatmentDetails_medicineID" readonly/></td>
+								<td>This record is for this Medicine IDs</td>
+							</tr>
+							<tr>
 								<td>Treatment Details ID</td>
-								<td><input type="text" value = "<%=TreatmentDetailsID%>" name="treatmentDetailsID" readonly/></td>
+								<td><input type="text" value="<%=treatmentDetails_medicine.getTreatmentDetailsID() %>"  name="treatmentDetailsID" readonly/></td>
 								<td>This record is for this treatment ID</td>
 							</tr>
 
 							<tr>
-								<td>Investigation Name</td>
-								<td><input type="text" required="required" name="investigationName" pattern="[A-Za-z0-9 ]{1,45}"/></td>
-								<td></td>
+								<td>Item ID</td>
+								<td><input type="text" value="<%=treatmentDetails_medicine.getItemId() %>" required="required" name="itemID" pattern="[A-Za-z0-9]{1,45}" title=""/></td>
+								<td>Note: IDs must be less than 45 characters long with no special characters</td>
 							</tr>
 							<tr>
-								<td>Result</td>
-								<td><input type="text" required="required" name="result"  pattern="[A-Za-z0-9 ]{1,200}"/></td>
-								<td></td>
+								<td>Dosage</td>
+								<td><input type="text" value="<%=treatmentDetails_medicine.getDosage() %>" required="required" name="dosage" pattern="[A-Za-z0-9 ]{1,200}"  title=""/></td>
+	
 							</tr>
+
 							<tr>
 								<td colspan="2"><input type="submit"
-									value="Add Support System" class="add-button" /></td>
+									value="Update medicine Details" class="add-button" /></td>
 							</tr>
 											
 							<tr>	
@@ -116,58 +118,21 @@
 						</table>
 					</form>
 					<div class="d-flex justify-content-end">	
-						<form method="POST" action="AddTreatmentDetails_InvestigationsServlet">
-									<input type="hidden" value="<%=TreatmentDetailsID%>" name="treatmentDetailsID" />
-									<input type="hidden" value="ECG" name="investigationName" />
-									<input type="hidden" value="pending" name="result" />
+						<form method="POST" action="UpdateTreatmentDetails_MedicineServlet">
+						    		<input type="hidden" value="<%=treatmentDetails_medicine.getTreatmentDetails_medicineID() %>" name="treatmentDetails_medicineID" />
+									<input type="hidden" value="I111" name="itemID" />
+									<input type="hidden" value="500mg twice daily" name="dosage" />
 									<input type="submit"
-										value="Add investigation DEMO" class="add-button" />
+										value="Update Treatment Details DEMO" class="add-button" />
 						</form>
-						<form method="POST" action="DisplayAllTreatmentDetailsServlet">
-							<input type="hidden" value ="<%=TreatmentDetailsID%>" name="treatmentDetailsID"> 
+						<form method="post" action="DisplayAllTreatmentDetailsServlet">
+							<input type="hidden" value ="<%=treatmentDetails_medicine.getTreatmentDetailsID()%>" name="treatmentDetailsID"> 
 							<input type="submit"
-										value="Display All Treatment details" class="add-button" />
-						</form>
-					
-					</div>
-					
-					
-					<form method="GET" action="DisplayAllTreatmentDetailsServlet">
-						<input type="hidden" value ="<%=TreatmentDetailsID%>" name="treatmentDetailsID"> 
-						<input type="submit"
-									value="Done!" class="add-button" />
-					
-					</form>
-					
-					
-					
-					
-					
-					<table class="table">
-						 
+										value="Done!" class="add-button" />
 						
-						  	<tr>
-				                <th>ID</th>
-				                <th>Investigation Name</th>
-				                <th>Result</th>
-				                 
-				            </tr>
-				            <%
-					            ITreatmentDetailsDAO iTreatmentDetailsDAO = new TreatmentDetailsDAO();
-								ArrayList<TreatmentDetails_investigations> arrayList = iTreatmentDetailsDAO.getTreatmentDetails_investigationsByID(Integer.toString(TreatmentDetailsID));
-								
-								for(TreatmentDetails_investigations treatmentDetails_investigations : arrayList){
-							%>
-							 <tr>
-								<td> <%=treatmentDetails_investigations.getTreatmentDetails_investigationsID() %> </td>
-								<td> <%=treatmentDetails_investigations.getInvestigationname()%> </td>
-								<td> <%=treatmentDetails_investigations.getResult()%> </td>
-							
-							</tr>			
-							<%	
-							   }
-				            %>     
-						</table>
+						</form>
+						
+					</div>	
 
 				</div>
 			</div>

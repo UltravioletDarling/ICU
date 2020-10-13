@@ -215,8 +215,8 @@
 												<td> <%=treatmentDetails_medicine.getItemId()%> </td>
 												<td> <%=treatmentDetails_medicine.getDosage() %> </td>
 												<td>  
-													<form method="POST" action="">
-														<input type="hidden" name="treatmentDetailsID" value="<%=treatmentDetails.getTreatmentDetailsID()%>"/>
+													<form method="POST" action="DisplayTreatmentDetails_MedicineByID">
+					
 														<input type="hidden" name="treatmentDetailsID_Medicine" value="<%=treatmentDetails_medicine.getTreatmentDetails_medicineID() %>"/>
 														<input type="submit" value= "Update " class="select-button" /> 
 									 				</form>
