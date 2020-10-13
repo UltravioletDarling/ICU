@@ -58,6 +58,8 @@
 					<li class="nav-item" role="presentation"><a class="nav-link"
 						href="DisplayAllTreatmentDetails.jsp"><i class="fas fa-table"></i><span>Treatment Details Table</span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
+						href="AddTreatmentDetails.jsp"><i class="fas fa-table"></i><span>Add new Record</span></a></li>
+					<li class="nav-item" role="presentation"><a class="nav-link"
 						href="login.html"><i class="far fa-user-circle"></i><span>Login</span></a></li>
 					<li class="nav-item" role="presentation"><a class="nav-link"
 						href="register.html"><i class="fas fa-user-circle"></i><span>Register</span></a></li>

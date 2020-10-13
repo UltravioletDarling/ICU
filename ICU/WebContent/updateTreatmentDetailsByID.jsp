@@ -92,37 +92,37 @@
 
 							<tr>
 								<td>Patient ID</td>
-								<td><input type="text" value="<%=tretamentDetails.getPatientID() %>" required="required" name="patientID" pattern="[A-Za-z0-9]{1,45}"/></td>
+								<td><input type="text" value="<%=tretamentDetails.getPatientID() %>" required="required" name="patientID" pattern="P.+[A-Za-z0-9]{1,45}" title="ID Starts with P and cannot be more than 45 chracters long"/></td>
 								<td>Note: IDs must be less than 45 characters long with no special characters</td>
 							</tr>
 							<tr>
 								<td>Doctor ID</td>
-								<td><input type="text" value="<%=tretamentDetails.getDoctorID() %>" required="required" name="doctorID" pattern="[A-Za-z0-9]{1,45}"/></td>
+								<td><input type="text" value="<%=tretamentDetails.getDoctorID() %>" required="required" name="doctorID" pattern="D.+[A-Za-z0-9]{1,45}"  title="ID Starts with D and cannot be more than 45 chracters long"/></td>
 	
 							</tr>
 							<tr>
 								<td>Blood Pressure</td>
-								<td><input type="text" value="<%=tretamentDetails.getbP() %>" required="required" name="bP" pattern="[0-9]{1,3}"/></td>
+								<td><input type="text" value="<%=tretamentDetails.getbP() %>" required="required" name="bP" pattern="[0-9]{1,3}" title="Invalid input, this must be between 0-1000"/></td>
 								<td>BPM</td>
 							</tr>
 							<tr>
 								<td>Heart Rate</td>
-								<td><input type="text" value="<%=tretamentDetails.gethR() %>" required="required" name="hR" pattern="[0-9]{1,3}"/></td>
+								<td><input type="text" value="<%=tretamentDetails.gethR() %>" required="required" name="hR" pattern="[0-9]{1,3}"  title="Invalid input, this must be between 0-1000"/></td>
 								<td>mmHg</td>
 							</tr>
 							<tr>
 								<td>SPO2</td>
-								<td><input type="number" value="<%=tretamentDetails.getsPO2() %>" required="required" name="sPO2" min="1" max="100"/></td>
+								<td><input type="number" value="<%=tretamentDetails.getsPO2() %>" required="required" name="sPO2" min="1" max="100" /></td>
 								<td>%</td>
 							</tr>
 							<tr>
 								<td>Fluid In-take</td>
-								<td><input type="text" value="<%=tretamentDetails.getFintake() %>" required="required" name="fintake" pattern="[0-9]{1,5}"/></td>
+								<td><input type="text" value="<%=tretamentDetails.getFintake() %>" required="required" name="fintake" pattern="[0-9]{1,5}.[0-9]{1,2}" title="Invalid input, please enter a number between 0-10000 with two decimal valeus"/></td>
 								<td>ml</td>
 							</tr>
 							<tr>
 								<td>Fluid Output</td>
-								<td><input type="text" value="<%=tretamentDetails.getFoutput() %>" required="required" name="foutput" pattern="[0-9]{1,5}"/></td>
+								<td><input type="text" value="<%=tretamentDetails.getFoutput() %>" required="required" name="foutput" pattern="[0-9]{1,5}.[0-9]{1,2}"  title="Invalid input, please enter a number between 0-10000 with two decimal valeus"/></td>
 								<td>ml</td>
 							</tr>
 
@@ -148,6 +148,12 @@
 									<input type="hidden"  value="1700" name="fintake" />
 									<input type="hidden" value="1000" name="foutput" /><input type="submit"
 										value="Update Treatment Details DEMO" class="add-button" />
+						</form>
+						<form method="post" action="DisplayAllTreatmentDetailsServlet">
+							<input type="hidden" value ="<%=tretamentDetails.getTreatmentDetailsID()%>" name="treatmentDetailsID"> 
+							<input type="submit"
+										value="Done!" class="add-button" />
+						
 						</form>
 						
 					</div>	
